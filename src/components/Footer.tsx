@@ -6,52 +6,34 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Flex
-      as="footer"
-      fillWidth
-      padding="8"
-      horizontal="center"
-      mobileDirection="column"
-    >
-      <Flex
-        className={styles.mobile}
-        maxWidth="m"
-        paddingY="8"
-        paddingX="16"
-        gap="16"
-        horizontal="space-between"
-        vertical="center"
-      >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">
-            {/* Usage of this template requires attribution. Please don't remove the link to Once UI. */}
-            / Build your portfolio with{" "}
-            <SmartLink
-              href="https://once-ui.com/products/magic-portfolio"
-            >
-              Once UI
-            </SmartLink>
+    <footer className={styles.footer}>
+      {/* Footer Content */}
+      <div className={styles.footerContent}>
+        {/* Copyright Text */}
+        <div className={styles.copyright}>
+          <Text variant="body-default-s" className={styles.copyrightText}>
+            ©{currentYear} • Crafted by {person.name} with inspiration, peer pressure, and sleepless nights with bursting ideas
           </Text>
-        </Text>
-        <Flex gap="16">
-          {social.map(
-            (item) =>
-              item.link && (
+        </div>
+
+        {/* Floating Social Icons */}
+        <div className={styles.socialContainer}>
+          {social.map((item) =>
+            item.link && (
+              <div key={item.name} className={styles.socialIconWrapper}>
                 <IconButton
-                  key={item.name}
                   href={item.link}
                   icon={item.icon}
                   tooltip={item.name}
-                  size="s"
+                  size="m"
                   variant="ghost"
+                  className={styles.socialIcon}
                 />
-              ),
+              </div>
+            )
           )}
-        </Flex>
-      </Flex>
-      <Flex height="80" show="s"></Flex>
-    </Flex>
+        </div>
+      </div>
+    </footer>
   );
 };

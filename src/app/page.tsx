@@ -43,30 +43,47 @@ export default function Home() {
       />
       
       {/* Hero Section */}
-      <Flex fillWidth gap="xl" style={{ paddingTop: "80px", paddingBottom: "120px" }}>
+      <Flex 
+        fillWidth 
+        gap="xl" 
+        className="hero-container"
+        paddingY="80"
+      >
         {/* Left Side - Text Content */}
-        <Flex flex={2} direction="column" gap="24" vertical="center">
+        <Flex flex={2} direction="column" gap="32" vertical="center">
+          {/* Greeting - Subtle and elegant */}
           <RevealFx translateY="4" fillWidth horizontal="start">
-            <Heading wrap="balance" variant="display-strong-xl">
-              <Text onBackground="neutral-strong">Hi, I'm Soham</Text>
-              <br />
-              <Text onBackground="neutral-weak" variant="display-strong-l">
-                Interactive Product Designer
-              </Text>
-            </Heading>
-          </RevealFx>
-          
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              I craft intuitive user interfaces and seamless digital experiences. 
-              From wireframes to prototypes, I design user-centered solutions that 
-              enhance usability and create meaningful interactions.
+            <Text 
+              className="hero-greeting"
+              variant="heading-default-l"
+            >
+              Namaste! I'm
             </Text>
           </RevealFx>
           
-          <RevealFx translateY="12" delay={0.4} horizontal="start">
+          {/* Main Name - Bold and prominent */}
+          <RevealFx translateY="8" delay={0.1} fillWidth horizontal="start">
+            <Heading wrap="balance" variant="display-strong-xl">
+              <Text className="hero-name">Soham Thatte</Text>
+            </Heading>
+          </RevealFx>
+          
+          {/* Description - Elegant and meaningful */}
+          <RevealFx translateY="12" delay={0.2} fillWidth horizontal="start">
+            <Text 
+              wrap="balance" 
+              className="hero-description"
+              variant="heading-default-xl"
+            >
+              A curious designer who enjoys the sweet spot between product and interaction design, 
+              crafting intuitive experiences where simplicity meets impact and ideas drive meaningful change.
+            </Text>
+          </RevealFx>
+          
+          {/* CTA Button */}
+          <RevealFx translateY="16" delay={0.4} horizontal="start">
             <Button
-              data-border="rounded"
+              className="hero-cta"
               href="/resume.pdf"
               variant="primary"
               size="l"
@@ -139,12 +156,12 @@ export default function Home() {
                     minWidth: "120px",
                     backdropFilter: "blur(20px) saturate(150%)",
                     WebkitBackdropFilter: "blur(20px) saturate(150%)",
-                    backgroundColor: "rgba(255, 255, 255, 0.08)",
-                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    backgroundColor: "var(--surface-background)",
+                    border: "1px solid var(--neutral-alpha-weak)",
                     boxShadow: `
-                      0 8px 32px rgba(0, 0, 0, 0.3),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                      inset 0 -1px 0 rgba(0, 0, 0, 0.1)
+                      0 8px 32px var(--shadow-color),
+                      inset 0 1px 0 var(--neutral-alpha-weak),
+                      inset 0 -1px 0 var(--neutral-alpha-weak)
                     `,
                     position: "relative",
                     overflow: "hidden",
@@ -154,7 +171,7 @@ export default function Home() {
                     variant="heading-strong-l"
                     style={{
                       fontSize: "32px",
-                      filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))",
+                      filter: "drop-shadow(0 2px 4px var(--shadow-color))",
                     }}
                   >
                     {tool.icon}
@@ -184,12 +201,12 @@ export default function Home() {
                     minWidth: "120px",
                     backdropFilter: "blur(20px) saturate(150%)",
                     WebkitBackdropFilter: "blur(20px) saturate(150%)",
-                    backgroundColor: "rgba(255, 255, 255, 0.08)",
-                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    backgroundColor: "var(--surface-background)",
+                    border: "1px solid var(--neutral-alpha-weak)",
                     boxShadow: `
-                      0 8px 32px rgba(0, 0, 0, 0.3),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                      inset 0 -1px 0 rgba(0, 0, 0, 0.1)
+                      0 8px 32px var(--shadow-color),
+                      inset 0 1px 0 var(--neutral-alpha-weak),
+                      inset 0 -1px 0 var(--neutral-alpha-weak)
                     `,
                     position: "relative",
                     overflow: "hidden",
@@ -199,7 +216,7 @@ export default function Home() {
                     variant="heading-strong-l"
                     style={{
                       fontSize: "32px",
-                      filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))",
+                      filter: "drop-shadow(0 2px 4px var(--shadow-color))",
                     }}
                   >
                     {tool.icon}
@@ -227,8 +244,8 @@ export default function Home() {
             style={{
               padding: "8px 16px",
               borderRadius: "20px",
-              background: "rgba(255, 255, 255, 0.05)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
+              background: "var(--neutral-alpha-weak)",
+              border: "1px solid var(--neutral-alpha-medium)",
             }}
           >
             <div
@@ -236,7 +253,7 @@ export default function Home() {
                 width: "8px",
                 height: "8px",
                 borderRadius: "50%",
-                background: "linear-gradient(90deg, #06b6d4 0%, #ef4444 100%)",
+                background: "linear-gradient(90deg, var(--brand-strong) 0%, var(--accent-strong) 100%)",
                 animation: "pulse 2s infinite",
               }}
             />
@@ -271,7 +288,6 @@ export default function Home() {
           <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
             <Button
               id="about"
-              data-border="rounded"
               href={about.path}
               variant="secondary"
               size="m"

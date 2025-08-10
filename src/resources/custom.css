@@ -1,5 +1,234 @@
 /* Custom styles for the portfolio */
 
+/* Remove default browser margins and padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+/* Ensure seamless page background */
+body {
+  background: var(--page-background) !important;
+  color: var(--neutral-on-background-strong) !important;
+}
+
+/* CSS Custom Properties for theme-aware colors */
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --surface-background: rgba(255, 255, 255, 0.08);
+  --footer-bg-primary: #0a0a1a;
+  --footer-bg-secondary: #1a1a2e;
+  --footer-bg-tertiary: #16213e;
+  --footer-text-primary: #a8b2d1;
+  --footer-text-hover: #cbd5e1;
+  --footer-border: rgba(255, 255, 255, 0.15);
+  --footer-border-hover: rgba(255, 255, 255, 0.25);
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --surface-background: rgba(0, 0, 0, 0.05);
+  --footer-bg-primary: #f1f5f9;
+  --footer-bg-secondary: #e2e8f0;
+  --footer-bg-tertiary: #cbd5e1;
+  --footer-text-primary: #64748b;
+  --footer-text-hover: #334155;
+  --footer-border: rgba(0, 0, 0, 0.08);
+  --footer-border-hover: rgba(0, 0, 0, 0.15);
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --surface-background: rgba(255, 255, 255, 0.08);
+  --footer-bg-primary: #0f0f23;
+  --footer-bg-secondary: #1a1a2e;
+  --footer-bg-tertiary: #16213e;
+  --footer-text-primary: #a8b2d1;
+  --footer-text-hover: #cbd5e1;
+  --footer-border: rgba(255, 255, 255, 0.2);
+  --footer-border-hover: rgba(255, 255, 255, 0.3);
+}
+
+/* Apply Geist fonts to ALL text elements by default */
+* {
+  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Force Geist fonts on all text elements */
+body, p, div, span, a, button, input, textarea, label, li, td, th, caption,
+.text, [data-variant*="body"], [data-variant*="label"] {
+  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Apply heading font to all heading elements and display variants */
+h1, h2, h3, h4, h5, h6, 
+.heading, 
+[data-variant*="display"], 
+[data-variant*="heading"] {
+  font-family: var(--font-heading), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Apply code font to code elements */
+code, pre, .code, [data-variant*="code"] {
+  font-family: var(--font-code), 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
+}
+
+/* Enhanced Liquid Glass Effects for Dynamic Island Navbar */
+.liquid-glass {
+  backdrop-filter: blur(35px) saturate(200%);
+  -webkit-backdrop-filter: blur(35px) saturate(200%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08),
+    inset 0 0 20px rgba(255, 255, 255, 0.03),
+    inset 0 0 40px rgba(255, 255, 255, 0.01);
+}
+
+/* Dynamic Island Animation Keyframes - Simple Binary States */
+@keyframes dynamicIslandExpand {
+  0% {
+    transform: scale(0.95) translateX(-50%);
+    border-radius: 20px;
+    padding: 12px;
+  }
+  100% {
+    transform: scale(1.05) translateX(-50%);
+    border-radius: 28px;
+    padding: 16px;
+  }
+}
+
+@keyframes dynamicIslandContract {
+  0% {
+    transform: scale(1.05) translateX(-50%);
+    border-radius: 28px;
+    padding: 16px;
+  }
+  100% {
+    transform: scale(0.95) translateX(-50%);
+    border-radius: 20px;
+    padding: 12px;
+  }
+}
+
+@keyframes liquidGlow {
+  0%, 100% {
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.08),
+      inset 0 0 20px rgba(255, 255, 255, 0.03),
+      inset 0 0 40px rgba(255, 255, 255, 0.01);
+  }
+  50% {
+    box-shadow:
+      0 25px 50px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+      inset 0 0 25px rgba(255, 255, 255, 0.04),
+      inset 0 0 50px rgba(255, 255, 255, 0.02);
+  }
+}
+
+/* New Dynamic Island Animations */
+/* Smart Hover Glow Animation - Much more subtle */
+@keyframes smartHoverGlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Drag Feedback Animation - Much more subtle */
+@keyframes dragFeedback {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Route Change Pulse Animation - Much more subtle */
+@keyframes routePulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Route indicator keyframes removed - no longer needed */
+
+/* Smart liquid glass morphing effects - ONLY on meaningful interactions */
+@keyframes liquidMorph {
+  0%, 100% {
+    border-radius: 28px;
+    transform: scale(1.05);
+  }
+  25% {
+    border-radius: 32px;
+    transform: scale(1.08);
+  }
+  50% {
+    border-radius: 24px;
+    transform: scale(1.02);
+  }
+  75% {
+    border-radius: 30px;
+    transform: scale(1.06);
+  }
+}
+
+/* Hover state animations - ONLY when actively moving mouse */
+.navbar-dynamic:hover:not(.dragging) {
+  /* Remove continuous animation - only subtle hover effects */
+  animation: none;
+}
+
+/* Smart interaction states - NO animations by default */
+.navbar-dynamic.interacting {
+  animation: none !important;
+}
+
+.navbar-dynamic.stable {
+  animation: none !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Default state - completely stable */
+.navbar-dynamic {
+  animation: none !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, backdrop-filter, box-shadow;
+  margin: 0 auto;
+}
+
+/* Drag state class */
+.navbar-dynamic.dragging {
+  animation: none !important;
+  transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -28,4 +257,215 @@
 /* Pause animation on hover */
 .tools-scroll:hover {
   animation-play-state: paused;
+}
+
+/* Interactive button hover effects */
+.liquid-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.liquid-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.liquid-button:hover::before {
+  left: 100%;
+}
+
+.liquid-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, [role="button"] {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Enhanced button hover effects */
+button:hover, a:hover, [role="button"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Liquid Glass Button States */
+.liquid-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.liquid-button:hover::before {
+  left: 100%;
+}
+
+/* Navbar State Classes */
+.navbar-expanded {
+  animation: dynamicIslandExpand 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.navbar-contracted {
+  animation: dynamicIslandContract 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Hero Section Enhancements */
+.hero-greeting {
+  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem !important;
+  letter-spacing: 0.02em;
+  color: var(--neutral-on-background-strong);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hero-greeting::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--neutral-on-background-medium), transparent);
+  transition: width 0.6s ease;
+}
+
+.hero-greeting:hover::after {
+  width: 100%;
+}
+
+.hero-name {
+  font-family: var(--font-heading), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--neutral-on-background-strong) 0%, var(--neutral-on-background-medium) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hero-name:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+.hero-description {
+  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.7;
+  color: var(--neutral-on-background-medium);
+  max-width: 600px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hero-description::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--neutral-on-background-weak), transparent);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-description:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced button styling for hero section */
+.hero-cta {
+  background: linear-gradient(135deg, var(--brand-strong) 0%, var(--brand-medium) 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 16px 32px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 25px rgba(var(--brand-rgb), 0.3);
+  position: relative;
+  overflow: hidden;
+  color: var(--neutral-on-brand-strong);
+}
+
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.hero-cta:hover::before {
+  left: 100%;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(var(--brand-rgb), 0.4);
+  background: linear-gradient(135deg, var(--brand-medium) 0%, var(--brand-weak) 100%);
+}
+
+/* Hero section container enhancements - SEAMLESS */
+.hero-container {
+  position: relative;
+  overflow: hidden;
+  /* Remove the distinct background - make it seamless */
+  background: transparent;
+}
+
+/* Remove the radial gradient background that was making it look separate */
+.hero-container::before {
+  display: none;
+}
+
+/* Make sure the hero section is completely seamless */
+.hero-container {
+  background: transparent !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove any distinct backgrounds that make sections look separate */
+.hero-container::before,
+.hero-container::after {
+  display: none !important;
 }
