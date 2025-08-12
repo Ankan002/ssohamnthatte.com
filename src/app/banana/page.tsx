@@ -45,7 +45,6 @@ export default function Banana() {
           <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
             <Button
               id="about"
-              data-border="rounded"
               href={about.path}
               variant="secondary"
               size="m"
@@ -71,7 +70,7 @@ export default function Banana() {
         <Projects range={[1, 1]} />
       </RevealFx>
       {routes["/blog"] && (
-        <Flex fillWidth gap="24" mobileDirection="column">
+        <Flex fillWidth gap="24">
           <Flex flex={1} paddingLeft="l" paddingTop="24">
             <Heading as="h2" variant="display-strong-xs" wrap="balance">
               Latest from the blog
