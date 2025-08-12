@@ -441,44 +441,36 @@ export const Header = () => {
               transition: "opacity 0.3s ease",
             }}
           />
+          {routes["/case-studies"] && (
+            <ToggleButton
+              prefixIcon="grid"
+              href="/case-studies"
+              label="Case Studies"
+              selected={pathname.startsWith("/case-studies")}
+            />
+          )}
           {routes["/about"] && (
             <ToggleButton
               prefixIcon="person"
               href="/about"
-              label={about.label}
+              label="About Me"
               selected={pathname === "/about"}
             />
           )}
-          {routes["/work"] && (
+          {routes["/experience"] && (
             <ToggleButton
-              prefixIcon="grid"
-              href="/work"
-              label={work.label}
-              selected={pathname.startsWith("/work")}
+              prefixIcon="rocket"
+              href="/experience"
+              label="Experience"
+              selected={pathname.startsWith("/experience")}
             />
           )}
-          {routes["/blog"] && (
+          {routes["/contact"] && (
             <ToggleButton
-              prefixIcon="book"
-              href="/blog"
-              label={blog.label}
-              selected={pathname.startsWith("/blog")}
-            />
-          )}
-          {routes["/gallery"] && (
-            <ToggleButton
-              prefixIcon="gallery"
-              href="/gallery"
-              label={gallery.label}
-              selected={pathname.startsWith("/gallery")}
-            />
-          )}
-          {routes["/banana"] && (
-            <ToggleButton
-              prefixIcon="star"
-              href="/banana"
-              label={banana.label}
-              selected={pathname === "/banana"}
+              prefixIcon="email"
+              href="/contact"
+              label="Contact"
+              selected={pathname.startsWith("/contact")}
             />
           )}
           {display.themeSwitcher && (

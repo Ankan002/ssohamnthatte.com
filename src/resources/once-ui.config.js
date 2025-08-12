@@ -10,6 +10,9 @@ const routes = {
   "/blog": true,
   "/gallery": true,
   "/banana": true,
+  "/case-studies": true,
+  "/experience": true,
+  "/contact": true,
 };
 
 const display = {
