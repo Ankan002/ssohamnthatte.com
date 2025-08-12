@@ -25,27 +25,26 @@ const newsletter = {
 };
 
 const social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
-  },
   {
     name: "LinkedIn",
     icon: "linkedin",
     link: "https://www.linkedin.com/company/once-ui/",
+    popup: "serious me",
+    type: "linkedin"
   },
   {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    name: "Behance",
+    icon: "behance",
+    link: "https://www.behance.net/",
+    popup: "old me",
+    type: "behance"
   },
   {
     name: "Email",
     icon: "email",
     link: `mailto:${person.email}`,
+    popup: "professional me",
+    type: "email"
   },
 ];
 

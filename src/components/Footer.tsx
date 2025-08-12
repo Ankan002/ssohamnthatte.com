@@ -12,7 +12,7 @@ export const Footer = () => {
         {/* Copyright Text */}
         <div className={styles.copyright}>
           <Text variant="body-default-s" className={styles.copyrightText}>
-            ©{currentYear} • Crafted by {person.name} with inspiration, peer pressure, and sleepless nights with bursting ideas
+            ©{currentYear} • {person.name}
           </Text>
         </div>
 
@@ -24,11 +24,14 @@ export const Footer = () => {
                 <IconButton
                   href={item.link}
                   icon={item.icon}
-                  tooltip={item.name}
                   size="m"
                   variant="ghost"
                   className={styles.socialIcon}
                 />
+                {/* Popup Tooltip */}
+                <div className={`${styles.tooltip} ${styles[item.type]}`}>
+                  <span className={styles.tooltipText}>{item.popup}</span>
+                </div>
               </div>
             )
           )}
