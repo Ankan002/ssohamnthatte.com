@@ -28,29 +28,29 @@ export default function About() {
         }}
       />
       
-      <Column 
+        <Column
         maxWidth="s" 
-        horizontal="center" 
+            horizontal="center"
         gap="l" 
         padding="xl"
         radius="l"
         background="surface"
         border="neutral-alpha-weak"
-        style={{
+                style={{
           backdropFilter: "blur(20px)",
           backgroundColor: "rgba(255, 255, 255, 0.1)",
         }}
       >
         <Heading variant="display-strong-l" style={{ textAlign: "center" }}>
           About Me
-        </Heading>
+            </Heading>
         <Text variant="body-default-l" style={{ textAlign: "center" }} onBackground="neutral-weak">
           Coming Soon
-        </Text>
+            </Text>
         <Text variant="body-default-s" style={{ textAlign: "center" }} onBackground="neutral-medium">
           I'm working on sharing my story and experience. Check back soon!
-        </Text>
-      </Column>
+                    </Text>
+                  </Column>
     </Column>
   );
 }

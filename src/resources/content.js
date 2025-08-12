@@ -35,7 +35,7 @@ const social = [
   {
     name: "Behance",
     icon: "behance",
-    link: "https://www.behance.net/",
+    link: "https://www.behance.net/sohamthatte01",
     popup: "old me",
     type: "behance"
   },

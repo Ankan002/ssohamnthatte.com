@@ -469,3 +469,66 @@ button:hover, a:hover, [role="button"]:hover {
 .hero-container::after {
   display: none !important;
 }
+
+/* Contact Form Card Hover Effects */
+.contact-form-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Social Card Background Hover Effects */
+.social-card-background {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Social Media Card with Custom Gradient */
+.social-media-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-media-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.social-card-gradient {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.social-media-card:hover .social-card-gradient {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* Input field hover effects */
+.contact-form-card input:hover,
+.contact-form-card textarea:hover {
+  border-color: var(--neutral-alpha-strong);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+  outline: none;
+  border-color: var(--brand-strong);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 0 0 3px rgba(var(--brand-rgb), 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Liquid Glass Button States */

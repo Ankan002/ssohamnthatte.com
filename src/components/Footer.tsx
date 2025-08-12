@@ -19,7 +19,7 @@ export const Footer = () => {
         {/* Floating Social Icons */}
         <div className={styles.socialContainer}>
           {social.map((item) =>
-            item.link && (
+              item.link && (
               <div key={item.name} className={styles.socialIconWrapper}>
                 <IconButton
                   href={item.link}

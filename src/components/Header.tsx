@@ -447,7 +447,7 @@ export const Header = () => {
               href="/case-studies"
               label="Case Studies"
               selected={pathname.startsWith("/case-studies")}
-            />
+          />
           )}
           {routes["/about"] && (
             <ToggleButton
