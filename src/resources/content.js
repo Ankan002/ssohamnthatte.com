@@ -8,7 +8,7 @@ const person = {
   },
   role: "Interactive Product Designer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
+  email: "soham.thatte04@gmail.com",
   location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
 };
@@ -28,7 +28,7 @@ const social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/soham-thatte-815b061a9/",
     popup: "serious me",
     type: "linkedin"
   },

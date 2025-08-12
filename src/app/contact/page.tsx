@@ -70,6 +70,15 @@ export default function Contact() {
                 having a conversation about design and technology.
               </Text>
               
+              <Column gap="s">
+                <Text variant="body-default-s" onBackground="neutral-medium">
+                  <strong>Email:</strong> soham.thatte04@gmail.com
+                </Text>
+                <Text variant="body-default-s" onBackground="neutral-medium">
+                  <strong>LinkedIn:</strong> soham-thatte-815b061a9
+                </Text>
+              </Column>
+              
               <Flex gap="m" wrap>
                 {emailSocial && (
                   <Button
