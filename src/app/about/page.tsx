@@ -132,7 +132,6 @@ export default function About() {
                 <Flex paddingX="8">Schedule a call</Flex>
                 <IconButton
                   href={about.calendar.link}
-                  data-border="rounded"
                   variant="secondary"
                   icon="chevronRight"
                 />
@@ -149,7 +148,7 @@ export default function About() {
               {person.role}
             </Text>
             {social.length > 0 && (
-              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth data-border="rounded">
+              <Flex className={styles.blockAlign} paddingTop="20" paddingBottom="8" gap="8" wrap horizontal="center" fitWidth>
                 {social.map(
                   (item) =>
                     item.link && (
