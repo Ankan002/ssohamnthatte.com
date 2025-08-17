@@ -76,6 +76,24 @@ code, pre, .code, [data-variant*="code"] {
   font-family: var(--font-code), 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
 }
 
+/* Apple-style SVG Logo Animations - Elegant and Minimalistic */
+@keyframes elegantLight {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -1000;
+    opacity: 0;
+  }
+}
+
 /* Enhanced Liquid Glass Effects for Dynamic Island Navbar */
 .liquid-glass {
   backdrop-filter: blur(35px) saturate(200%);
@@ -229,15 +247,6 @@ code, pre, .code, [data-variant*="code"] {
   transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
@@ -247,16 +256,6 @@ code, pre, .code, [data-variant*="code"] {
     opacity: 0.7;
     transform: scale(1.1);
   }
-}
-
-/* Smooth scrolling for the tools section */
-.tools-scroll {
-  animation: scroll 30s linear infinite;
-}
-
-/* Pause animation on hover */
-.tools-scroll:hover {
-  animation-play-state: paused;
 }
 
 /* Interactive button hover effects */
@@ -442,6 +441,266 @@ button:hover, a:hover, [role="button"]:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 35px rgba(var(--brand-rgb), 0.4);
   background: linear-gradient(135deg, var(--brand-medium) 0%, var(--brand-weak) 100%);
+}
+
+/* Resume Button - Dynamic Island Style */
+.resume-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.resume-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 0;
+}
+
+.resume-button:hover::before {
+  left: 100%;
+}
+
+/* Resume Button Hover Effects - Subtle */
+.resume-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Resume Button Focus States */
+.resume-button:focus {
+  outline: none;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05),
+    0 0 0 3px rgba(255, 255, 255, 0.15);
+}
+
+/* Resume Button Active State */
+.resume-button:active {
+  transform: translateY(-1px);
+  transition: all 0.1s ease;
+}
+
+/* Resume Button Dark Theme Enhancements */
+[data-theme="dark"] .resume-button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .resume-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Resume Button Light Theme Enhancements */
+[data-theme="light"] .resume-button {
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.95);
+}
+
+[data-theme="light"] .resume-button:hover {
+  background: rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Tool Cards Styling */
+.tool-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 48px var(--shadow-color),
+    inset 0 1px 0 var(--neutral-alpha-weak),
+    inset 0 -1px 0 var(--neutral-alpha-weak);
+}
+
+/* About Hook Cards Styling */
+.about-hook-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-hook-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 48px var(--shadow-color),
+    inset 0 1px 0 var(--neutral-alpha-weak),
+    inset 0 -1px 0 var(--neutral-alpha-weak);
+}
+
+/* Passion Cards Styling */
+.passion-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.passion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 48px var(--shadow-color),
+    inset 0 1px 0 var(--neutral-alpha-weak),
+    inset 0 -1px 0 var(--neutral-alpha-weak);
+}
+
+/* Testimonial cards - exactly like header */
+.testimonial-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin: 12px 0;
+  /* Performance optimizations */
+  will-change: transform, backdrop-filter, box-shadow;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  /* Header-like translucency */
+  backdrop-filter: blur(35px) saturate(200%);
+  -webkit-backdrop-filter: blur(35px) saturate(200%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08),
+    inset 0 0 20px rgba(255, 255, 255, 0.03),
+    inset 0 0 40px rgba(255, 255, 255, 0.01);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px) scale(1.02) rotate(-1deg);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+    inset 0 0 25px rgba(255, 255, 255, 0.04),
+    inset 0 0 50px rgba(255, 255, 255, 0.02);
+  z-index: 10;
+}
+
+.testimonial-card:active {
+  transform: translateY(-4px) scale(1.01) rotate(-0.5deg);
+  transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Recommendation links - subtle text, hidden by default, visible on hover */
+.recommendation-link {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: absolute;
+  bottom: 16px;
+  left: 24px;
+  color: var(--neutral-on-background-weak);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  pointer-events: none;
+  user-select: none;
+  text-decoration: none;
+}
+
+.testimonial-card:hover .recommendation-link {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.recommendation-link:hover {
+  color: var(--neutral-on-background-strong);
+  transform: translateY(0) translateX(4px);
+}
+
+.recommendation-link:active {
+  transform: translateY(0);
+  transition: all 0.1s ease;
+}
+
+/* Testimonials Ticker Animation - Truly seamless infinite */
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonials-ticker {
+  animation: tickerScroll 30s linear infinite;
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  min-width: 100vw;
+  /* Performance optimizations */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  /* Enhanced cursor feedback */
+  cursor: grab;
+  user-select: none;
+  /* Smooth scrolling for manual drag */
+  scroll-behavior: smooth;
+}
+
+.testimonials-ticker:hover {
+  animation-play-state: paused;
+}
+
+.testimonials-ticker:active {
+  cursor: grabbing;
+  animation-play-state: paused;
+}
+
+/* When manually dragging, pause the animation */
+.testimonials-ticker.dragging {
+  animation-play-state: paused;
+  cursor: grabbing;
+}
+
+/* Testimonials container - optimized */
+.testimonials-ticker-container {
+  width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
+  margin-right: calc(-50vw + 50%) !important;
+  overflow: hidden;
+  position: relative;
+  padding: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  /* Performance optimizations */
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Case Study Preview Cards Styling */
+.case-study-preview-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.case-study-preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 48px var(--shadow-color),
+    inset 0 1px 0 var(--neutral-alpha-weak),
+    inset 0 -1px 0 var(--neutral-alpha-weak);
 }
 
 /* Hero section container enhancements - SEAMLESS */

@@ -1,4 +1,6 @@
-import { getPosts } from '@/utils/utils';
+"use client";
+
+import { useEffect, useState } from 'react';
 import { Grid } from '@once-ui-system/core';
 import Post from './Post';
 
@@ -9,24 +11,69 @@ interface PostsProps {
     direction?: 'row' | 'column';
 }
 
+interface BlogPost {
+  metadata: {
+    title: string;
+    publishedAt: string;
+    summary: string;
+    image?: string;
+    images: string[];
+    tag?: string;
+    team: Array<{
+      name: string;
+      role: string;
+      avatar: string;
+      linkedIn: string;
+    }>;
+    link?: string;
+  };
+  slug: string;
+  content: string;
+}
+
 export function Posts({
     range,
     columns = '1',
     thumbnail = false,
     direction
 }: PostsProps) {
-    let allBlogs = getPosts(['src', 'app', 'blog', 'posts']);
+    const [posts, setPosts] = useState<BlogPost[]>([]);
+    const [loading, setLoading] = useState(true);
 
-    const sortedBlogs = allBlogs.sort((a, b) => {
-        return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
-    });
+    useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const response = await fetch('/api/posts');
+                if (response.ok) {
+                    const data = await response.json();
+                    setPosts(data);
+                } else {
+                    console.error('Failed to fetch posts');
+                }
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchPosts();
+    }, []);
+
+    if (loading) {
+        return (
+            <Grid columns={columns} fillWidth marginBottom="40" gap="12">
+                <div>Loading posts...</div>
+            </Grid>
+        );
+    }
 
     const displayedBlogs = range
-        ? sortedBlogs.slice(
+        ? posts.slice(
               range[0] - 1,
-              range.length === 2 ? range[1] : sortedBlogs.length 
+              range.length === 2 ? range[1] : posts.length 
           )
-        : sortedBlogs;
+        : posts;
 
     return (
         <>

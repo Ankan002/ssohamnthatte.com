@@ -1,4 +1,6 @@
-import { getPosts } from "@/utils/utils";
+"use client";
+
+import { useEffect, useState } from "react";
 import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
 
@@ -6,16 +8,61 @@ interface ProjectsProps {
   range?: [number, number?];
 }
 
-export function Projects({ range }: ProjectsProps) {
-  let allProjects = getPosts(["src", "app", "work", "projects"]);
+interface Project {
+  metadata: {
+    title: string;
+    publishedAt: string;
+    summary: string;
+    image?: string;
+    images: string[];
+    tag?: string;
+    team: Array<{
+      name: string;
+      role: string;
+      avatar: string;
+      linkedIn: string;
+    }>;
+    link?: string;
+  };
+  slug: string;
+  content: string;
+}
 
-  const sortedProjects = allProjects.sort((a, b) => {
-    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
-  });
+export function Projects({ range }: ProjectsProps) {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('/api/projects');
+        if (response.ok) {
+          const data = await response.json();
+          setProjects(data);
+        } else {
+          console.error('Failed to fetch projects');
+        }
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (loading) {
+    return (
+      <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
+        <div>Loading projects...</div>
+      </Column>
+    );
+  }
 
   const displayedProjects = range
-    ? sortedProjects.slice(range[0] - 1, range[1] ?? sortedProjects.length)
-    : sortedProjects;
+    ? projects.slice(range[0] - 1, range[1] ?? projects.length)
+    : projects;
 
   return (
     <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
