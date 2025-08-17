@@ -616,29 +616,102 @@ export default function Home() {
               onMouseDown={(e) => {
                 const ticker = e.currentTarget;
                 const startX = e.clientX;
-                const startScrollLeft = ticker.scrollLeft;
+                const startTransform = ticker.style.transform || 'translateX(0)';
+                const startTranslateX = parseInt(startTransform.match(/translateX\(([-\d.]+)px\)/)?.[1] || '0');
                 let isDragging = true;
 
-                // Add dragging class for visual feedback
+                // Pause the animation and add dragging class
+                ticker.style.animationPlayState = 'paused';
                 ticker.classList.add('dragging');
 
                 const handleMouseMove = (e: MouseEvent) => {
                   if (!isDragging) return;
                   e.preventDefault();
+                  
                   const x = e.clientX;
-                  const walk = (startX - x) * 2;
-                  ticker.scrollLeft = startScrollLeft + walk;
+                  const walk = (startX - x) * 1.5; // Smoother movement
+                  const newTranslateX = startTranslateX - walk;
+                  
+                  // Apply the transform
+                  ticker.style.transform = `translateX(${newTranslateX}px)`;
                 };
 
                 const handleMouseUp = () => {
                   isDragging = false;
                   ticker.classList.remove('dragging');
+                  
+                  // Resume animation with current position
+                  ticker.style.animationPlayState = 'running';
+                  
+                  // Remove the inline transform to let CSS animation take over
+                  setTimeout(() => {
+                    ticker.style.transform = '';
+                  }, 50);
+                  
                   document.removeEventListener('mousemove', handleMouseMove);
                   document.removeEventListener('mouseup', handleMouseUp);
                 };
 
                 document.addEventListener('mousemove', handleMouseMove);
                 document.addEventListener('mouseup', handleMouseUp);
+              }}
+              onMouseEnter={() => {
+                // Pause animation on hover for better interaction
+                const ticker = document.querySelector('.testimonials-ticker') as HTMLElement;
+                if (ticker) {
+                  ticker.style.animationPlayState = 'paused';
+                }
+              }}
+              onMouseLeave={() => {
+                // Resume animation when mouse leaves
+                const ticker = document.querySelector('.testimonials-ticker') as HTMLElement;
+                if (ticker && !ticker.classList.contains('dragging')) {
+                  ticker.style.animationPlayState = 'running';
+                }
+              }}
+              onTouchStart={(e) => {
+                const ticker = e.currentTarget;
+                const touch = e.touches[0];
+                const startX = touch.clientX;
+                const startTransform = ticker.style.transform || 'translateX(0)';
+                const startTranslateX = parseInt(startTransform.match(/translateX\(([-\d.]+)px\)/)?.[1] || '0');
+                let isDragging = true;
+
+                // Pause the animation and add dragging class
+                ticker.style.animationPlayState = 'paused';
+                ticker.classList.add('dragging');
+
+                const handleTouchMove = (e: TouchEvent) => {
+                  if (!isDragging) return;
+                  e.preventDefault();
+                  
+                  const touch = e.touches[0];
+                  const x = touch.clientX;
+                  const walk = (startX - x) * 1.5;
+                  const newTranslateX = startTranslateX - walk;
+                  
+                  // Apply the transform
+                  ticker.style.transform = `translateX(${newTranslateX}px)`;
+                };
+
+                const handleTouchEnd = () => {
+                  isDragging = false;
+                  ticker.classList.remove('dragging');
+                  
+                  // Resume animation with current position
+                  ticker.style.animationPlayState = 'running';
+                  
+                  // Remove the inline transform to let CSS animation take over
+                  setTimeout(() => {
+                    ticker.style.transform = '';
+                  }, 50);
+                  
+                  document.removeEventListener('touchmove', handleTouchMove);
+                  document.removeEventListener('touchend', handleTouchEnd);
+                };
+
+                document.addEventListener('touchmove', handleTouchMove, { passive: false });
+                document.addEventListener('touchend', handleTouchEnd);
               }}
             >
               {/* Original 4 Cards */}

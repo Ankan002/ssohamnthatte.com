@@ -24,6 +24,8 @@ body {
   --footer-text-hover: #cbd5e1;
   --footer-border: rgba(255, 255, 255, 0.15);
   --footer-border-hover: rgba(255, 255, 255, 0.25);
+  /* Page background RGB values for fade effects */
+  --page-background-rgb: 0, 0, 0;
 }
 
 /* Light theme overrides */
@@ -37,6 +39,7 @@ body {
   --footer-text-hover: #334155;
   --footer-border: rgba(0, 0, 0, 0.08);
   --footer-border-hover: rgba(0, 0, 0, 0.15);
+  --page-background-rgb: 255, 255, 255;
 }
 
 /* Dark theme overrides */
@@ -631,7 +634,7 @@ button:hover, a:hover, [role="button"]:hover {
   transition: all 0.1s ease;
 }
 
-/* Testimonials Ticker Animation - Truly seamless infinite */
+/* Testimonials Ticker Animation - Truly seamless infinite with enhanced mouse interaction */
 @keyframes tickerScroll {
   0% {
     transform: translateX(0);
@@ -641,6 +644,7 @@ button:hover, a:hover, [role="button"]:hover {
   }
 }
 
+/* Enhanced mouse and touch interaction for testimonials ticker */
 .testimonials-ticker {
   animation: tickerScroll 30s linear infinite;
   margin-left: 0;
@@ -653,15 +657,24 @@ button:hover, a:hover, [role="button"]:hover {
   will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
-  /* Enhanced cursor feedback */
+  /* Enhanced cursor feedback and interaction */
   cursor: grab;
   user-select: none;
   /* Smooth scrolling for manual drag */
   scroll-behavior: smooth;
+  /* Better touch and mouse interaction */
+  touch-action: pan-x;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  /* Smooth interaction transitions */
+  transition: transform 0.1s ease-out;
 }
 
+/* Hover and active states */
 .testimonials-ticker:hover {
   animation-play-state: paused;
+  cursor: grab;
 }
 
 .testimonials-ticker:active {
@@ -669,13 +682,44 @@ button:hover, a:hover, [role="button"]:hover {
   animation-play-state: paused;
 }
 
-/* When manually dragging, pause the animation */
+/* Smooth interaction states */
+.testimonials-ticker.interacting {
+  transition: transform 0.05s ease-out;
+}
+
+/* When manually dragging, pause the animation and show feedback */
 .testimonials-ticker.dragging {
   animation-play-state: paused;
   cursor: grabbing;
+  /* Smooth transition when dragging starts/stops */
+  transition: transform 0.1s ease-out;
 }
 
-/* Testimonials container - optimized */
+/* Enhanced drag feedback with subtle scaling */
+.testimonials-ticker.dragging .testimonial-card {
+  transform: scale(0.98);
+  transition: transform 0.1s ease-out;
+  /* Add subtle shadow during drag */
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Smooth reset when dragging ends */
+.testimonials-ticker:not(.dragging) .testimonial-card {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Prevent text selection during drag */
+.testimonials-ticker.dragging * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Testimonials container - optimized without overlay fades */
 .testimonials-ticker-container {
   width: 100vw !important;
   margin-left: calc(-50vw + 50%) !important;
@@ -688,6 +732,39 @@ button:hover, a:hover, [role="button"]:hover {
   /* Performance optimizations */
   will-change: transform;
   backface-visibility: hidden;
+}
+
+/* Add fade effect using a different approach - gradient overlay that actually works */
+.testimonials-ticker-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--page-background) 0%,
+    transparent 100%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+.testimonials-ticker-container::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(
+    to left,
+    var(--page-background) 0%,
+    transparent 100%
+  );
+  z-index: 10;
+  pointer-events: none;
 }
 
 /* Case Study Preview Cards Styling */
