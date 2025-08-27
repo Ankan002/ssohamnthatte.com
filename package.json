@@ -21,6 +21,7 @@
     "react-dom": "19.0.0",
     "react-icons": "^5.5.0",
     "react-masonry-css": "^1.0.16",
+    "react-pdf": "^10.1.0",
     "sass": "^1.86.3"
   },
   "devDependencies": {
@@ -28,6 +29,7 @@
     "@types/node": "^20.17.30",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@types/react-pdf": "^6.2.0",
     "eslint": "^9.25.0",
     "typescript": "^5.8.3"
   }
