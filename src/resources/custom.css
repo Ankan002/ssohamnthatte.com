@@ -1,528 +1,217 @@
-/* Custom styles for the portfolio */
-
-/* Remove default browser margins and padding */
-html, body {
-  margin: 0;
-  padding: 0;
-  background: transparent;
+/* Logo Light Animation */
+@keyframes sPathLight {
+  0% {
+    stroke-dashoffset: 600;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
 }
 
-/* Ensure seamless page background */
-body {
-  background: var(--page-background) !important;
-  color: var(--neutral-on-background-strong) !important;
+@keyframes tPathLight {
+  0% {
+    stroke-dashoffset: 600;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
 }
 
-/* CSS Custom Properties for theme-aware colors */
-:root {
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --surface-background: rgba(255, 255, 255, 0.08);
-  --footer-bg-primary: #0a0a1a;
-  --footer-bg-secondary: #1a1a2e;
-  --footer-bg-tertiary: #16213e;
-  --footer-text-primary: #a8b2d1;
-  --footer-text-hover: #cbd5e1;
-  --footer-border: rgba(255, 255, 255, 0.15);
-  --footer-border-hover: rgba(255, 255, 255, 0.25);
-  /* Page background RGB values for fade effects */
-  --page-background-rgb: 0, 0, 0;
-}
-
-/* Light theme overrides */
-[data-theme="light"] {
-  --shadow-color: rgba(0, 0, 0, 0.15);
-  --surface-background: rgba(0, 0, 0, 0.05);
-  --footer-bg-primary: #f1f5f9;
-  --footer-bg-secondary: #e2e8f0;
-  --footer-bg-tertiary: #cbd5e1;
-  --footer-text-primary: #64748b;
-  --footer-text-hover: #334155;
-  --footer-border: rgba(0, 0, 0, 0.08);
-  --footer-border-hover: rgba(0, 0, 0, 0.15);
-  --page-background-rgb: 255, 255, 255;
-}
-
-/* Dark theme overrides */
-[data-theme="dark"] {
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --surface-background: rgba(255, 255, 255, 0.08);
-  --footer-bg-primary: #0f0f23;
-  --footer-bg-secondary: #1a1a2e;
-  --footer-bg-tertiary: #16213e;
-  --footer-text-primary: #a8b2d1;
-  --footer-text-hover: #cbd5e1;
-  --footer-border: rgba(255, 255, 255, 0.2);
-  --footer-border-hover: rgba(255, 255, 255, 0.3);
-}
-
-/* Apply Geist fonts to ALL text elements by default */
-* {
-  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* Force Geist fonts on all text elements */
-body, p, div, span, a, button, input, textarea, label, li, td, th, caption,
-.text, [data-variant*="body"], [data-variant*="label"] {
-  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-}
-
-/* Apply heading font to all heading elements and display variants */
-h1, h2, h3, h4, h5, h6, 
-.heading, 
-[data-variant*="display"], 
-[data-variant*="heading"] {
-  font-family: var(--font-heading), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-}
-
-/* Apply code font to code elements */
-code, pre, .code, [data-variant*="code"] {
-  font-family: var(--font-code), 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
-}
-
-/* Apple-style SVG Logo Animations - Elegant and Minimalistic */
+/* Header logo path light animation */
 @keyframes elegantLight {
   0% {
     stroke-dashoffset: 1000;
     opacity: 0;
+    filter: drop-shadow(0 0 0 rgba(255,255,255,0));
   }
-  15% {
+  10% { opacity: 1; }
+  60% {
+    stroke-dashoffset: 0;
     opacity: 1;
-  }
-  85% {
-    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
   }
   100% {
-    stroke-dashoffset: -1000;
-    opacity: 0;
+    opacity: 0.1;
+    filter: drop-shadow(0 0 0 rgba(255,255,255,0));
   }
 }
 
-/* Enhanced Liquid Glass Effects for Dynamic Island Navbar */
-.liquid-glass {
-  backdrop-filter: blur(35px) saturate(200%);
-  -webkit-backdrop-filter: blur(35px) saturate(200%);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.3),
+/* Tools Ticker Animation */
+@keyframes toolsTickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Enhanced Liquid Glass Resume Button */
+.resume-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.resume-button:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.resume-button:hover .button-glow {
+  opacity: 1;
+}
+
+.resume-button:hover .button-shimmer {
+  transform: translateX(100%);
+}
+
+.resume-button:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+.resume-button:active {
+  transform: translateY(-2px) scale(1.01);
+  transition: all 0.1s ease;
+}
+
+/* Button focus states */
+.resume-button:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 3px rgba(255, 255, 255, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.08),
-    inset 0 0 20px rgba(255, 255, 255, 0.03),
-    inset 0 0 40px rgba(255, 255, 255, 0.01);
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Dynamic Island Animation Keyframes - Simple Binary States */
-@keyframes dynamicIslandExpand {
+/* Tools Ticker Container */
+.tools-ticker-container {
+  position: relative;
+}
+
+.tools-ticker-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--page-background) 0%,
+    var(--page-background) 20%,
+    transparent 100%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tools-ticker-container::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  background: linear-gradient(
+    to left,
+    var(--page-background) 0%,
+    var(--page-background) 20%,
+    transparent 100%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Ticker Icon Hover Animation */
+.ticker-icon {
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ticker-icon:hover {
+  filter: grayscale(0%) brightness(1.1) contrast(1.2) !important;
+  transform: scale(1.05);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Sophisticated Image Entry Animation - Apple-like */
+@keyframes sophisticatedImageEntry {
   0% {
-    transform: scale(0.95) translateX(-50%);
-    border-radius: 20px;
-    padding: 12px;
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(-8px) scale(1.02);
   }
   100% {
-    transform: scale(1.05) translateX(-50%);
-    border-radius: 28px;
-    padding: 16px;
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
-@keyframes dynamicIslandContract {
-  0% {
-    transform: scale(1.05) translateX(-50%);
-    border-radius: 28px;
-    padding: 16px;
-  }
-  100% {
-    transform: scale(0.95) translateX(-50%);
-    border-radius: 20px;
-    padding: 12px;
-  }
-}
-
-@keyframes liquidGlow {
-  0%, 100% {
-    box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.08),
-      inset 0 0 20px rgba(255, 255, 255, 0.03),
-      inset 0 0 40px rgba(255, 255, 255, 0.01);
-  }
-  50% {
-    box-shadow:
-      0 25px 50px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.25),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1),
-      inset 0 0 25px rgba(255, 255, 255, 0.04),
-      inset 0 0 50px rgba(255, 255, 255, 0.02);
-  }
-}
-
-/* New Dynamic Island Animations */
-/* Smart Hover Glow Animation - Much more subtle */
-@keyframes smartHoverGlow {
+@keyframes imageGlowFade {
   0% {
     opacity: 0;
     transform: scale(0.8);
   }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Drag Feedback Animation - Much more subtle */
-@keyframes dragFeedback {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Route Change Pulse Animation - Much more subtle */
-@keyframes routePulse {
-  0% {
-    opacity: 0;
-    transform: scale(0.95);
-  }
   50% {
-    opacity: 0.3;
-    transform: scale(1.02);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-/* Route indicator keyframes removed - no longer needed */
-
-/* Smart liquid glass morphing effects - ONLY on meaningful interactions */
-@keyframes liquidMorph {
-  0%, 100% {
-    border-radius: 28px;
-    transform: scale(1.05);
-  }
-  25% {
-    border-radius: 32px;
-    transform: scale(1.08);
-  }
-  50% {
-    border-radius: 24px;
-    transform: scale(1.02);
-  }
-  75% {
-    border-radius: 30px;
-    transform: scale(1.06);
-  }
-}
-
-/* Hover state animations - ONLY when actively moving mouse */
-.navbar-dynamic:hover:not(.dragging) {
-  /* Remove continuous animation - only subtle hover effects */
-  animation: none;
-}
-
-/* Smart interaction states - NO animations by default */
-.navbar-dynamic.interacting {
-  animation: none !important;
-}
-
-.navbar-dynamic.stable {
-  animation: none !important;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Default state - completely stable */
-.navbar-dynamic {
-  animation: none !important;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform, backdrop-filter, box-shadow;
-  margin: 0 auto;
-}
-
-/* Drag state class */
-.navbar-dynamic.dragging {
-  animation: none !important;
-  transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
+    opacity: 0.6;
     transform: scale(1.1);
   }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
 }
 
-/* Interactive button hover effects */
-.liquid-button {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.liquid-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.liquid-button:hover::before {
-  left: 100%;
-}
-
-.liquid-button:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.3),
-    0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-/* Smooth transitions for all interactive elements */
-button, a, [role="button"] {
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Enhanced button hover effects */
-button:hover, a:hover, [role="button"]:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
-/* Liquid Glass Button States */
-.liquid-button {
-  position: relative;
-  overflow: hidden;
-}
-
-.liquid-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.15),
-    transparent
-  );
-  transition: left 0.5s;
-}
-
-.liquid-button:hover::before {
-  left: 100%;
-}
-
-/* Navbar State Classes */
-.navbar-expanded {
-  animation: dynamicIslandExpand 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-.navbar-contracted {
-  animation: dynamicIslandContract 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-/* Hero Section Enhancements */
-.hero-greeting {
-  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-weight: 500;
-  font-size: 1.5rem !important;
-  letter-spacing: 0.02em;
-  color: var(--neutral-on-background-strong);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.hero-greeting::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, var(--neutral-on-background-medium), transparent);
-  transition: width 0.6s ease;
-}
-
-.hero-greeting:hover::after {
-  width: 100%;
-}
-
-.hero-name {
-  font-family: var(--font-heading), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--neutral-on-background-strong) 0%, var(--neutral-on-background-medium) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.hero-name:hover {
-  transform: scale(1.02);
-  filter: brightness(1.1);
-}
-
-.hero-description {
-  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.7;
-  color: var(--neutral-on-background-medium);
-  max-width: 600px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.hero-description::before {
-  content: '';
-  position: absolute;
-  left: -20px;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(180deg, var(--neutral-on-background-weak), transparent);
-  border-radius: 2px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.hero-description:hover::before {
-  opacity: 1;
-}
-
-/* Enhanced button styling for hero section */
-.hero-cta {
-  background: linear-gradient(135deg, var(--brand-strong) 0%, var(--brand-medium) 100%);
-  border: none;
-  border-radius: 12px;
-  padding: 16px 32px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 8px 25px rgba(var(--brand-rgb), 0.3);
-  position: relative;
-  overflow: hidden;
-  color: var(--neutral-on-brand-strong);
-}
-
-.hero-cta::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.6s ease;
-}
-
-.hero-cta:hover::before {
-  left: 100%;
-}
-
-.hero-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(var(--brand-rgb), 0.4);
-  background: linear-gradient(135deg, var(--brand-medium) 0%, var(--brand-weak) 100%);
-}
-
-/* Resume Button - Dynamic Island Style */
-.resume-button {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: translateZ(0);
+/* Sophisticated Image Container */
+.sophisticated-image-container {
+  will-change: transform, opacity;
   backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-.resume-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.08),
-    transparent
-  );
-  transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  z-index: 0;
+.sophisticated-image {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-.resume-button:hover::before {
-  left: 100%;
+/* Sophisticated UI Card Hover Effects */
+.sophisticated-ui-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-/* Resume Button Hover Effects - Subtle */
-.resume-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
-}
-
-/* Resume Button Focus States */
-.resume-button:focus {
-  outline: none;
-  box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.05),
-    0 0 0 3px rgba(255, 255, 255, 0.15);
-}
-
-/* Resume Button Active State */
-.resume-button:active {
-  transform: translateY(-1px);
-  transition: all 0.1s ease;
-}
-
-/* Resume Button Dark Theme Enhancements */
-[data-theme="dark"] .resume-button {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.95);
-}
-
-[data-theme="dark"] .resume-button:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Resume Button Light Theme Enhancements */
-[data-theme="light"] .resume-button {
-  background: rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  color: rgba(0, 0, 0, 0.95);
-}
-
-[data-theme="light"] .resume-button:hover {
-  background: rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(0, 0, 0, 0.2);
+.sophisticated-ui-card:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-10px);
+  box-shadow: 0 60px 120px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Tool Cards Styling */
@@ -788,6 +477,82 @@ button:hover, a:hover, [role="button"]:hover {
   background: transparent;
 }
 
+/* Unified liquid-glass text ticker bar */
+.text-ticker-bar {
+  position: relative;
+  border-radius: 0;
+  /* Liquid glass base */
+  background: rgba(255, 255, 255, 0.06);
+  /* Subtle brand tint overlay */
+  background-image: linear-gradient(
+    135deg,
+    rgba(var(--brand-rgb, 16, 185, 129), 0.25) 0%,
+    rgba(var(--brand-rgb, 16, 185, 129), 0.15) 40%,
+    rgba(var(--accent-rgb, 244, 63, 94), 0.15) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06);
+  transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1),
+              background 1.5s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 1.5s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.text-ticker-bar:hover {
+  background: rgba(255, 255, 255, 0.08);
+  background-image: linear-gradient(
+    135deg,
+    rgba(var(--brand-rgb, 16, 185, 129), 0.35) 0%,
+    rgba(var(--brand-rgb, 16, 185, 129), 0.2) 40%,
+    rgba(var(--accent-rgb, 244, 63, 94), 0.2) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+  transform: scaleY(1.08); /* smoother, slightly larger expansion */
+}
+
+.text-ticker {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  min-width: 100vw;
+  padding: 8px 16px; /* tighter vertical spacing */
+  align-items: center;
+  animation: toolsTickerScroll 22s linear infinite;
+}
+
+.text-ticker .item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.text-ticker .label {
+  font-weight: 700;
+  font-size: 14px; /* revert to previous size */
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+.text-ticker .star {
+  display: inline-block;
+  width: 16px; /* revert to previous size */
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0.0) 70%);
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.25));
+}
+
 /* Remove the radial gradient background that was making it look separate */
 .hero-container::before {
   display: none;
@@ -804,6 +569,140 @@ button:hover, a:hover, [role="button"]:hover {
 .hero-container::before,
 .hero-container::after {
   display: none !important;
+}
+
+/* Passion Display (Liquid Glass Cards) */
+.glass-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .glass-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 36px 64px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.glass-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 16px 8px 16px;
+}
+
+.glass-card-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.9), rgba(16, 185, 129, 0.35) 60%, rgba(16, 185, 129, 0) 70%);
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.35);
+}
+
+.glass-card-body {
+  padding: 0 16px 16px 16px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+.glass-card-media {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Bottom overlay for media cards */
+.glass-card-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 16px;
+  background: linear-gradient(
+    to top,
+    rgba(10, 12, 15, 0.85) 0%,
+    rgba(10, 12, 15, 0.65) 60%,
+    rgba(10, 12, 15, 0.0) 100%
+  );
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.glass-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+}
+
+.glass-card-desc {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+}
+
+/* No-media card layout */
+.glass-card--textual {
+  display: flex;
+  align-items: center;
+  min-height: 220px;
+}
+
+/* Mini features grid (for UX Research card) */
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mini-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.mini-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* Contact Form Card Hover Effects */
@@ -867,4 +766,207 @@ button:hover, a:hover, [role="button"]:hover {
     0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Liquid Glass Button States */
+/* Site-wide Custom Cursor - PROPER IMPLEMENTATION */
+* {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.cursor__ball {
+  position: fixed;
+  top: 0;
+  left: 0;
+  mix-blend-mode: difference;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.cursor__ball--big {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cursor__ball--small {
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cursor__ball circle {
+  fill: #f7f8fa;
+}
+
+/* Hover effects */
+.cursor-hover .cursor__ball--big {
+  transform: scale(4);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Theme-aware cursor colors */
+[data-theme="light"] .cursor__ball circle { fill: #010101; }
+[data-theme="light"] .cursor__ball--small circle { fill: #ffffff; }
+[data-theme="dark"] .cursor__ball circle { fill: #f7f8fa; }
+
+/* Interactive Hero Background - SIMPLIFIED BREATHING */
+.interactive-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Concentric circles with breathing animation - SIMPLIFIED */
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.02);
+  will-change: transform, opacity, width, height;
+  /* Center all circles initially */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: emergeFromCenter 2s ease-out forwards, breathe 6s ease-in-out infinite;
+  transition: width 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              height 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              opacity 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.circle-1 { 
+  width: 600px; height: 600px; 
+  animation-delay: 0.2s, 2.2s;
+}
+.circle-2 { 
+  width: 450px; height: 450px; 
+  animation-delay: 0.4s, 2.4s;
+}
+.circle-3 { 
+  width: 320px; height: 320px; 
+  animation-delay: 0.6s, 2.6s;
+}
+.circle-4 { 
+  width: 720px; height: 720px; 
+  animation-delay: 0.8s, 2.8s;
+}
+
+/* Emerge from center animation */
+@keyframes emergeFromCenter {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Breathing animation */
+@keyframes breathe {
+  0% { 
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.8;
+  }
+  100% { 
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* Animated circular lines (rings) - SIMPLIFIED */
+.animated-line {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.06);
+  will-change: transform, opacity, width, height;
+  /* Center all rings initially */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: emergeFromCenter 1.5s ease-out forwards, breathe 8s ease-in-out infinite;
+  transition: width 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              height 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              opacity 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.line-1 { 
+  width: 900px; height: 900px; 
+  animation-delay: 0.3s, 1.8s;
+}
+.line-2 { 
+  width: 700px; height: 700px; 
+  animation-delay: 0.5s, 2.0s;
+}
+.line-3 { 
+  width: 500px; height: 500px; 
+  animation-delay: 0.7s, 2.2s;
+}
+
+/* Soft gradient orbs - SIMPLIFIED */
+.gradient-orb {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.25;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.5), rgba(255,255,255,0) 70%);
+  will-change: transform, opacity;
+  /* Center orbs initially */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: emergeFromCenter 1.5s ease-out forwards, breathe 10s ease-in-out infinite;
+}
+
+.orb-1 { 
+  animation-delay: 0.4s, 2.4s;
+}
+.orb-2 { 
+  animation-delay: 0.6s, 2.6s;
+}
+
+/* Separation visual: when inner dot moves out, invert inner color */
+.cursor-separated .cursor__ball--small circle { transition: fill 120ms ease; }
+[data-theme="light"] .cursor-separated .cursor__ball--small circle { fill: #010101; }
+[data-theme="dark"] .cursor-separated .cursor__ball--small circle { fill: #010101; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animated-line,
+  .floating-circle,
+  .gradient-orb {
+    animation: none !important;
+  }
+  .testimonials-ticker,
+  .tools-ticker {
+    animation-duration: 999s !important;
+  }
+  .custom-cursor {
+    display: none !important;
+  }
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -53,6 +53,7 @@ export default function Contact() {
         </Column>
 
         <ContactForm />
+
         
         {/* Social Media Links Card */}
         <Flex 

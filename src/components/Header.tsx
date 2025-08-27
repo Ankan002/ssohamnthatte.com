@@ -198,7 +198,6 @@ export const Header = () => {
     <Flex
       position="fixed"
       top="16"
-      zIndex={10}
       horizontal="center"
       style={{
         left: "50%",
@@ -207,6 +206,7 @@ export const Header = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        zIndex: 100,
       }}
     >
       <Flex

@@ -6,6 +6,7 @@ import classNames from "classnames";
 
 import { Background, Column, Flex, Meta, opacity, SpacingToken } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers, ScrollProgressBar } from '@/components';
+import { GlobalCursor } from '@/components/GlobalCursor';
 import { baseURL, effects, fonts, style, dataStyle, home } from '@/resources';
 
 export async function generateMetadata() {
@@ -37,6 +38,7 @@ export default async function RootLayout({
       )}
     >
       <head>
+        <link rel="preload" as="image" href="/images/soham.png" fetchPriority="high" />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{
@@ -96,6 +98,23 @@ export default async function RootLayout({
         />
       </head>
       <Providers>
+        {/* Custom Cursor */}
+        <div className="custom-cursor">
+          <div className="cursor__ball cursor__ball--big">
+            <svg height="30" width="30">
+              <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+            </svg>
+          </div>
+          <div className="cursor__ball cursor__ball--small">
+            <svg height="10" width="10">
+              <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+            </svg>
+          </div>
+        </div>
+        
+        {/* Global Cursor Logic */}
+        <GlobalCursor />
+        
         <ScrollProgressBar />
         <Column as="body" background="page" fillWidth style={{minHeight: "100vh"}} margin="0" padding="0" horizontal="center">
           <Background

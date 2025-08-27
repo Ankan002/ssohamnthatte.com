@@ -35,40 +35,150 @@ export default function CaseStudies() {
         }}
       />
       
-      <Column fillWidth gap="xl" paddingY="xl">
-        <Column fillWidth gap="m">
-          <Heading variant="display-strong-xl">
-            Case Studies
-          </Heading>
-          <Text variant="heading-default-l" onBackground="neutral-weak">
-            Detailed explorations of my design and development projects
-          </Text>
-        </Column>
-
-        <Column fillWidth gap="l">
-          <Flex 
-            fillWidth 
-            padding="l" 
-            background="surface" 
-            border="neutral-alpha-weak" 
-            radius="m"
+      {/* Only MoneyVest card, same as homepage */}
+      <Column fillWidth gap="32" paddingY="80">
+        <div style={{ height: "24px" }} />
+        <Flex
+          fillWidth
+          horizontal="center"
+          style={{ justifyContent: "center" }}
+        >
+          <div
+            className="sophisticated-ui-card"
             style={{
-              backdropFilter: "blur(20px) saturate(150%)",
-              backgroundColor: "rgba(255, 255, 255, 0.05)",
+              width: "1000px",
+              height: "600px",
+              background: "linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)",
+              borderRadius: "24px",
+              position: "relative",
+              overflow: "hidden",
+              boxShadow:
+                "0 40px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)",
+              transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              cursor: "pointer",
             }}
           >
-            <Column fillWidth gap="m">
-              <Heading variant="heading-strong-l">
-                Coming Soon
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak">
-                I'm currently working on detailed case studies that showcase my design process, 
-                problem-solving approach, and the impact of my work. Check back soon for 
-                comprehensive project breakdowns.
-              </Text>
-            </Column>
-          </Flex>
-        </Column>
+            <div
+              style={{
+                position: "absolute",
+                top: "-50px",
+                left: "-50px",
+                width: "200px",
+                height: "200px",
+                background:
+                  "radial-gradient(circle, rgba(147, 51, 234, 0.3) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 100%)",
+                borderRadius: "50%",
+                filter: "blur(40px)",
+                zIndex: 1,
+              }}
+            />
+
+            <div style={{ position: "relative", zIndex: 2, height: "100%", display: "flex" }}>
+              <div style={{ flex: "35%", padding: "32px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
+                  <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#10b981" }}></div>
+                  <Text style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.7)", fontWeight: "500" }}>
+                    Featured Case Study • 5 min read
+                  </Text>
+                </div>
+
+                <Heading style={{ fontSize: "2.4rem", fontWeight: "700", color: "white", marginBottom: "16px", lineHeight: "1.1" }}>
+                  MoneyVest Finance App
+                </Heading>
+
+                <Text style={{ fontSize: "1.1rem", color: "rgba(255, 255, 255, 0.8)", marginBottom: "24px", lineHeight: "1.5" }}>
+                  A comprehensive financial management app designed to help users track expenses, manage investments, and achieve their financial goals with intuitive design.
+                </Text>
+
+                <div style={{ display: "flex", gap: "12px", marginBottom: "24px", flexWrap: "wrap" }}>
+                  <span style={{ fontSize: "12px", color: "#3b82f6", background: "rgba(59, 130, 246, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>Mobile App</span>
+                  <span style={{ fontSize: "12px", color: "#10b981", background: "rgba(16, 185, 129, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>2024</span>
+                  <span style={{ fontSize: "12px", color: "#8b5cf6", background: "rgba(139, 92, 246, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>Finance</span>
+                </div>
+
+                <a
+                  href="/case-studies/moneyvest"
+                  className="resume-button"
+                  style={{
+                    gap: "16px",
+                    padding: "16px 32px",
+                    background: "rgba(255, 255, 255, 0.08)",
+                    backdropFilter: "blur(20px) saturate(180%)",
+                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    borderRadius: "16px",
+                    color: "rgba(255, 255, 255, 0.95)",
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    alignSelf: "flex-start",
+                    position: "relative",
+                    overflow: "hidden",
+                    boxShadow:
+                      "0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1)",
+                    transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                  }}
+                >
+                  <div
+                    className="button-glow"
+                    style={{
+                      position: "absolute",
+                      top: "0",
+                      left: "0",
+                      right: "0",
+                      bottom: "0",
+                      background:
+                        "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.15) 0%, transparent 70%)",
+                      opacity: 0,
+                      transition: "opacity 0.4s ease",
+                    }}
+                  />
+
+                  <div
+                    className="button-shimmer"
+                    style={{
+                      position: "absolute",
+                      top: "0",
+                      left: "-100%",
+                      width: "100%",
+                      height: "100%",
+                      background:
+                        "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)",
+                      transition: "transform 0.6s ease",
+                    }}
+                  />
+
+                  <span style={{ position: "relative", zIndex: 2 }}>Read Case Study</span>
+                  <span
+                    className="arrow-icon"
+                    style={{ fontSize: "18px", position: "relative", zIndex: 2, transition: "transform 0.3s ease" }}
+                  >
+                    →
+                  </span>
+                </a>
+              </div>
+
+              <div style={{ flex: "65%", padding: "24px", background: "rgba(0, 0, 0, 0.2)", position: "relative" }}>
+                <div style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "16px",
+                  overflow: "hidden",
+                  position: "relative",
+                  background: "linear-gradient(135deg, #1e293b 0%, #334155 100%)",
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)"
+                }}>
+                  <img
+                    src="/images/moneyvest.png"
+                    alt="MoneyVest Finance App"
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", borderRadius: "16px" }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Flex>
       </Column>
     </Column>
   );
