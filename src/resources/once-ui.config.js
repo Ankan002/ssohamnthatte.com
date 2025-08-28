@@ -11,6 +11,7 @@ const routes = {
   "/gallery": true,
   "/banana": true,
   "/case-studies": true,
+  "/cv": true,
   "/experience": true,
   "/contact": true,
 };

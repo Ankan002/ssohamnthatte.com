@@ -352,7 +352,7 @@ export default function Home() {
                         {/* CTA Button */}
             <RevealFx translateY="16" delay={0.4} horizontal="start">
               <a
-                href="/resume"
+                href="/cv"
                 className="resume-button"
                 style={{
                   display: "inline-flex",
