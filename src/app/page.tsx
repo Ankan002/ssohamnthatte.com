@@ -542,6 +542,8 @@ export default function Home() {
             }}
           >
             {/* Sophisticated UI Card - Moneyvest Case Study */}
+            <a href="/case-studies/moneyvest" style={{ textDecoration: "none", color: "inherit" }}
+            >
             <div
               className="sophisticated-ui-card"
               style={{
@@ -714,6 +716,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            </a>
           </Flex>
         </RevealFx>
         

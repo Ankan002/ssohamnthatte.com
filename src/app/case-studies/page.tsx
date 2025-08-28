@@ -73,7 +73,7 @@ export default function CaseStudies() {
               }}
             />
 
-            <div style={{ position: "relative", zIndex: 2, height: "100%", display: "flex" }}>
+            <a href="/case-studies/moneyvest" style={{ position: "relative", zIndex: 2, height: "100%", display: "flex", textDecoration: "none", color: "inherit" }}>
               <div style={{ flex: "35%", padding: "32px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
                   <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#10b981" }}></div>
@@ -175,7 +175,7 @@ export default function CaseStudies() {
                   />
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </Flex>
       </Column>
