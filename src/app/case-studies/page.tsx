@@ -75,11 +75,10 @@ export default function CaseStudies() {
 
             <div style={{ position: "relative", zIndex: 2, height: "100%", display: "flex" }}>
               <div style={{ flex: "35%", padding: "32px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
                   <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#10b981" }}></div>
-                  <Text style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.7)", fontWeight: "500" }}>
-                    Featured Case Study • 5 min read
-                  </Text>
+                  <Text style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.7)", fontWeight: "500" }}>Featured Re-design Case Study</Text>
+                  <Text style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.7)", fontWeight: "500", display: "block", width: "100%" }}>10 min read</Text>
                 </div>
 
                 <Heading style={{ fontSize: "2.4rem", fontWeight: "700", color: "white", marginBottom: "16px", lineHeight: "1.1" }}>
@@ -91,8 +90,8 @@ export default function CaseStudies() {
                 </Text>
 
                 <div style={{ display: "flex", gap: "12px", marginBottom: "24px", flexWrap: "wrap" }}>
-                  <span style={{ fontSize: "12px", color: "#3b82f6", background: "rgba(59, 130, 246, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>Mobile App</span>
-                  <span style={{ fontSize: "12px", color: "#10b981", background: "rgba(16, 185, 129, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>2024</span>
+                  <span style={{ fontSize: "12px", color: "#3b82f6", background: "rgba(59, 130, 246, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>Webapp</span>
+                  <span style={{ fontSize: "12px", color: "#10b981", background: "rgba(16, 185, 129, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>2025</span>
                   <span style={{ fontSize: "12px", color: "#8b5cf6", background: "rgba(139, 92, 246, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>Finance</span>
                 </div>
 

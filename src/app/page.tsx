@@ -3,8 +3,8 @@
 import React from "react";
 import Image from "next/image";
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Meta, Schema } from "@once-ui-system/core";
-import { home, about, person, newsletter, baseURL, routes } from "@/resources";
+import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Meta, Schema, Background } from "@once-ui-system/core";
+import { home, about, person, newsletter, baseURL, routes, mailchimp } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
@@ -12,33 +12,92 @@ import { Posts } from "@/components/blog/Posts";
 const tools = [
   { 
     name: "Figma", 
-    icon: <img src="/images/icons/figma.png" alt="Figma" style={{ width: "134px", height: "42px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
+    icon: <img src="/images/icons/figma.png" alt="Figma" style={{ width: "214px", height: "67px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
     color: "#F24E1E" 
   },
   { 
     name: "Framer", 
-    icon: <img src="/images/icons/framer.png" alt="Framer" style={{ width: "146px", height: "40px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
+    icon: <img src="/images/icons/framer.png" alt="Framer" style={{ width: "234px", height: "64px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
     color: "#0055FF" 
   },
   { 
     name: "Illustrator", 
-    icon: <img src="/images/icons/illustrator.png" alt="Illustrator" style={{ width: "157px", height: "39px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
+    icon: <img src="/images/icons/illustrator.png" alt="Illustrator" style={{ width: "251px", height: "62px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
     color: "#FF9A00" 
   },
   { 
     name: "Notion", 
-    icon: <img src="/images/icons/notion.png" alt="Notion" style={{ width: "157px", height: "39px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
+    icon: <img src="/images/icons/notion.png" alt="Notion" style={{ width: "251px", height: "62px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
     color: "#000000" 
   },
   { 
     name: "Slack", 
-    icon: <img src="/images/icons/slack.png" alt="Slack" style={{ width: "157px", height: "39px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
+    icon: <img src="/images/icons/slack.png" alt="Slack" style={{ width: "251px", height: "62px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
     color: "#4A154B" 
   },
   { 
     name: "Webflow", 
-    icon: <img src="/images/icons/webflow.png" alt="Webflow" style={{ width: "157px", height: "37px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
+    icon: <img src="/images/icons/webflow.png" alt="Webflow" style={{ width: "251px", height: "59px", filter: "grayscale(100%) brightness(0.9) contrast(1.1)", transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }} className="ticker-icon" />,
     color: "#146EF5" 
+  },
+];
+
+const testimonials = [
+  {
+    name: "Devamrit Mohanty",
+    role: "Bosch JMP- Growth Strategy | GTM Specialist",
+    emoji: "🧭",
+    text:
+      "Soham brought sharp design sensibility and systems-level thinking to our UX strategy. He improved usability, mapped stakeholder journeys, and proposed scalable interventions that streamlined workflows. His balance of strategic foresight with precise execution made him a valued member of our team.",
+    alwaysShowRecommendation: false,
+  },
+  {
+    name: "Aditya Gautam",
+    role: "Product Manager  @ Bosch",
+    emoji: "📈",
+    text:
+      "Soham brings a rare mix of design sensitivity and strategic thinking. During his internship, he led UX audits, redesigned workflows, and created empathy maps that streamlined processes and improved usability. He has a knack for identifying friction points within complex systems and turning them into clear, scalable solutions. His ability to balance design craft with systems-level foresight, while communicating effectively across teams, made him a highly valued contributor.",
+    alwaysShowRecommendation: false,
+  },
+  {
+    name: "Makarand Kulkarni",
+    role: "Founder & Director @ Ether Design",
+    emoji: "🎨",
+    text:
+      "Soham quickly made an impact with his collaborative spirit and design thinking. During his internship, he redesigned the website for an overseas client, studying user needs in depth and creating wireframes that guided decision-making smoothly. His ability to analyze patterns, craft engaging page compositions, and bring a youthful user perspective resulted in a highly intuitive and user-friendly design. Passionate, rigorous, and quick to learn, he left a strong mark in a short time.",
+    alwaysShowRecommendation: true,
+  },
+  {
+    name: "Sabyasachi  rout",
+    role: "Product Manager  @ Bosch",
+    emoji: "🧩",
+    text:
+      "Soham made a strong impact during his time at Bosch, contributing meaningfully to our UX Strategy initiatives. He combined sharp design sensibility with structured systems thinking to address complex workflows and improve usability. His ability to present ideas clearly, integrate feedback, and deliver grounded solutions made him a highly valued team member. I would be glad to share more context about his work anytime.",
+    alwaysShowRecommendation: false,
+  },
+  {
+    name: "Shirin Deshpande",
+    role: "Head of Product Marketing @ Bosch",
+    emoji: "💡",
+    text:
+      "Soham demonstrated professionalism, creativity, and dedication throughout his time with us. His strong design and strategic mindset brought real value to our projects, and his ability to approach challenges with clarity and innovation stood out. I strongly recommend him for roles in UX design and strategy, as I am confident he will be a great asset to any organization.",
+    alwaysShowRecommendation: false,
+  },
+  {
+    name: "Avinash Jethwani",
+    role: "CTO @ Jobsub",
+    emoji: "🧠",
+    text:
+      "Working with Soham was a seamless and rewarding experience. He went beyond surface-level requirements, showcasing a remarkable ability to understand user behavior and long-term scalability. The result was a visually compelling and cohesive interface that brought structure to our vision. Soham's process is both collaborative and strategic, and his contributions were invaluable.",
+    alwaysShowRecommendation: false,
+  },
+  {
+    name: "Rahul Kumar",
+    role: "CTO @ Jobsub",
+    emoji: "🔧",
+    text:
+      "During his internship, Soham demonstrated exceptional ability in tackling complex UX challenges. His research-driven approach, attention to detail, and strong grasp of UX principles allowed him to deliver solutions that significantly improved usability and customer satisfaction. His insights, creativity, and structured problem-solving made a real impact, and I am confident he will continue to be a valuable asset in any design team.",
+    alwaysShowRecommendation: true,
   },
 ];
 
@@ -392,9 +451,11 @@ export default function Home() {
             </RevealFx>
         </Flex>
       </Flex>
+      </Column>
       
-        {/* Tools Ticker - Bottom */}
-        <RevealFx translateY="24" delay={0.6} fillWidth style={{ position: "absolute", bottom: "20px", left: 0, right: 0, zIndex: 10 }}>
+      {/* Tools I work with – dedicated section below hero */}
+      <Column fillWidth gap="0" paddingY="8">
+        <RevealFx translateY="24" delay={0.1} fillWidth>
           <div 
             className="tools-ticker-container"
             style={{
@@ -403,7 +464,7 @@ export default function Home() {
               marginRight: "calc(-50vw + 50%)",
               overflow: "hidden",
               position: "relative",
-              padding: "30px 0",
+              padding: "16px 0",
             }}
           >
             <div 
@@ -419,7 +480,6 @@ export default function Home() {
                 alignItems: "center",
               }}
             >
-              {/* Original Tools */}
               {tools.map((tool, index) => (
                 <div
                   key={index}
@@ -427,8 +487,8 @@ export default function Home() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    minWidth: "96px",
-                    height: "80px",
+                    minWidth: "144px",
+                    height: "112px",
                     filter: "brightness(0.8) contrast(0.9)",
                     transition: "all 0.3s ease",
                   }}
@@ -436,8 +496,6 @@ export default function Home() {
                   {tool.icon}
                 </div>
               ))}
-              
-              {/* Duplicate Tools for seamless loop */}
               {tools.map((tool, index) => (
                 <div
                   key={`duplicate-${index}`}
@@ -445,26 +503,8 @@ export default function Home() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    minWidth: "96px",
-                    height: "80px",
-                    filter: "brightness(0.8) contrast(0.9)",
-                    transition: "all 0.3s ease",
-                  }}
-                >
-                  {tool.icon}
-                </div>
-              ))}
-              
-              {/* Third set for ultra-seamless loop */}
-              {tools.map((tool, index) => (
-                <div
-                  key={`triplicate-${index}`}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    minWidth: "96px",
-                    height: "80px",
+                    minWidth: "144px",
+                    height: "112px",
                     filter: "brightness(0.8) contrast(0.9)",
                     transition: "all 0.3s ease",
                   }}
@@ -478,7 +518,7 @@ export default function Home() {
       </Column>
       
       {/* Case Studies Hook Section */}
-      <Column fillWidth gap="32" paddingY="48">
+      <Column fillWidth gap="16" paddingY="24">
         <RevealFx translateY="8" fillWidth horizontal="center">
           <Column horizontal="center" gap="16" maxWidth="l">
             <Heading variant="display-strong-l" wrap="balance" style={{ textAlign: "center" }}>
@@ -536,11 +576,10 @@ export default function Home() {
                 {/* Left Section - Case Study Content */}
                 <div style={{ flex: "35%", padding: "32px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                   {/* Case Study Badge */}
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#10b981" }}></div>
-                    <Text style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.7)", fontWeight: "500" }}>
-                      Featured Case Study • 5 min read
-                    </Text>
+                    <Text style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.7)", fontWeight: "500" }}>Featured Re-design Case Study</Text>
+                    <Text style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.7)", fontWeight: "500", display: "block", width: "100%" }}>10 min read</Text>
                   </div>
                   
                   {/* Main Headline */}
@@ -566,8 +605,8 @@ export default function Home() {
                   
                   {/* Project Details */}
                   <div style={{ display: "flex", gap: "12px", marginBottom: "24px", flexWrap: "wrap" }}>
-                    <span style={{ fontSize: "12px", color: "#3b82f6", background: "rgba(59, 130, 246, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>Mobile App</span>
-                    <span style={{ fontSize: "12px", color: "#10b981", background: "rgba(16, 185, 129, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>2024</span>
+                    <span style={{ fontSize: "12px", color: "#3b82f6", background: "rgba(59, 130, 246, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>Webapp</span>
+                    <span style={{ fontSize: "12px", color: "#10b981", background: "rgba(16, 185, 129, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>2025</span>
                     <span style={{ fontSize: "12px", color: "#8b5cf6", background: "rgba(139, 92, 246, 0.2)", padding: "4px 8px", borderRadius: "6px" }}>Finance</span>
                   </div>
                   
@@ -717,153 +756,17 @@ export default function Home() {
             "Drive", "Storytelling", "Impact", "Strategy", "Interaction Oriented", "Scalable",
           ].map((text, index) => (
             <div className="item" key={index}>
+              {index > 0 && <span className="star" />}
               <span className="label">{text}</span>
-              <span className="star" />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Passion Display - Layout swap per provided component; keep title/description above */}
-      <Column fillWidth gap="16" paddingY="24">
-        <RevealFx translateY="8" fillWidth horizontal="center">
-          <Column horizontal="center" gap="8" maxWidth="l">
-            <Heading variant="display-strong-l" wrap="balance" style={{ textAlign: "center" }}>
-              <Text onBackground="neutral-strong">Passion Display</Text>
-            </Heading>
-            <Text variant="heading-default-xl" wrap="balance" onBackground="neutral-weak" style={{ textAlign: "center" }}>
-              What I love doing every day
-            </Text>
-          </Column>
-        </RevealFx>
+      {/* Passion Display removed */}
 
-        <RevealFx translateY="12" delay={0.1} fillWidth>
-          <div style={{ position: "relative", minHeight: 720, width: "100%", maxWidth: 1200, margin: "0 auto" }}>
-            {/* Top Left - UNAGI meme */}
-            <div style={{ position: "absolute", top: 0, left: 0, width: 320, height: 256 }} className="glass-card">
-              <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
-                <div style={{ width: "100%", height: "100%", background: "linear-gradient(135deg, #7c2d12, #c2410c)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ textAlign: "center" }}>
-                    <div style={{ width: 96, height: 96, background: "#ea580c", borderRadius: 9999, margin: "0 auto 16px", display: "flex", alignItems: "center", justifyContent: "center" }}>👨‍💼</div>
-                    <div style={{ color: "#fff", fontSize: 36, fontWeight: 800, letterSpacing: 2 }}>UNAGI</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Design Thinking below UNAGI */}
-            <div style={{ position: "absolute", top: 288, left: 0, width: 320, height: 128 }} className="glass-card">
-              <div style={{ padding: 24 }}>
-                <div style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
-                  <span className="glass-card-icon" />
-                  <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 600, marginLeft: 12 }}>Design Thinking</h3>
-                </div>
-                <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 14 }}>Empathize, Define, Ideate, Prototype and Test</p>
-              </div>
-            </div>
-
-            {/* UX Research top center */}
-            <div style={{ position: "absolute", top: 0, left: 384, width: 320, height: 160 }} className="glass-card">
-              <div style={{ padding: 24 }}>
-                <div style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
-                  <span className="glass-card-icon" />
-                  <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 600, marginLeft: 12 }}>UX Research</h3>
-                </div>
-                <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 14 }}>Unveiling Insights through UX Research, bridging user desires with digital excellence.</p>
-              </div>
-            </div>
-
-            {/* Visual Design bottom-left large */}
-            <div style={{ position: "absolute", bottom: 0, left: 0, width: 384, height: 320 }} className="glass-card">
-              <div style={{ padding: 24 }}>
-                <div style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
-                  <span className="glass-card-icon" />
-                  <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 600, marginLeft: 12 }}>Visual Design</h3>
-                </div>
-                <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 14 }}>Impactful, Aesthetic, Visual Storytelling</p>
-              </div>
-              <div style={{ background: "#374151", borderRadius: 12, overflow: "hidden", height: 192, margin: 0 }}>
-                <div style={{ background: "#4b5563", height: 32, display: "flex", alignItems: "center", padding: "0 12px", gap: 8 }}>
-                  <div style={{ width: 12, height: 12, background: "#ef4444", borderRadius: 9999 }} />
-                  <div style={{ width: 12, height: 12, background: "#f59e0b", borderRadius: 9999 }} />
-                  <div style={{ width: 12, height: 12, background: "#22c55e", borderRadius: 9999 }} />
-                  <div style={{ marginLeft: 16, fontSize: 12, color: "#e5e7eb", background: "#6b7280", padding: "2px 6px", borderRadius: 6 }}>✓ Secure | portfolio</div>
-                </div>
-                <div style={{ padding: 12, height: "calc(100% - 32px)", background: "#fff" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-                    <div style={{ width: 16, height: 16, background: "#3b82f6", borderRadius: 4 }} />
-                    <span style={{ fontSize: 12, color: "#4b5563" }}>Some portfolio</span>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: 12, color: "#1f2937", fontWeight: 600 }}>Links</div>
-                    <div style={{ marginLeft: 16, fontSize: 12, color: "#4b5563" }}>
-                      <div>→ Navigation</div>
-                      <div>→ Page 1</div>
-                      <div>→ Page 2</div>
-                      <div>→ Page 3</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right side stacked cards */}
-            <div style={{ position: "absolute", top: 0, right: 0, width: 320 }}>
-              <div style={{ marginBottom: 16, width: 128, height: 128 }} className="glass-card">
-                <div style={{ textAlign: "center", padding: 16 }}>
-                  <div style={{ width: 32, height: 32, background: "#3b82f6", borderRadius: 9999, margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 12 }}>👥</div>
-                  <div style={{ color: "#fff", fontSize: 12, fontWeight: 500 }}>Primary Research</div>
-                </div>
-              </div>
-              <div style={{ position: "absolute", top: 0, right: 0, width: 128, height: 160 }} className="glass-card">
-                <div style={{ textAlign: "center", padding: 16 }}>
-                  <div style={{ width: 32, height: 32, background: "#f97316", borderRadius: 8, margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 12 }}>📱</div>
-                  <div style={{ color: "#fff", fontSize: 12, fontWeight: 500 }}>User Testing</div>
-                </div>
-              </div>
-              <div style={{ position: "absolute", top: 144, left: 0, width: 128, height: 128 }} className="glass-card">
-                <div style={{ textAlign: "center", padding: 16 }}>
-                  <div style={{ width: 32, height: 32, background: "#14b8a6", borderRadius: 9999, margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 12 }}>🔍</div>
-                  <div style={{ color: "#fff", fontSize: 12, fontWeight: 500 }}>Secondary Research</div>
-                </div>
-              </div>
-              <div style={{ position: "absolute", top: 144, right: 0, width: 128, height: 128 }} className="glass-card">
-                <div style={{ textAlign: "center", padding: 16 }}>
-                  <div style={{ width: 32, height: 32, background: "#22c55e", borderRadius: 8, margin: "0 auto 8px", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 12 }}>🗺️</div>
-                  <div style={{ color: "#fff", fontSize: 12, fontWeight: 500 }}>Affinity Mapping</div>
-                </div>
-              </div>
-              <div style={{ position: "absolute", top: 288, left: 0, width: 160, height: 192, background: "linear-gradient(135deg, #6b7280, #374151)", borderRadius: 14, padding: 8 }}>
-                <div style={{ width: "100%", height: "100%", background: "#111827", borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", color: "#9ca3af", fontSize: 12 }}>Device Mockup</div>
-              </div>
-            </div>
-
-            {/* Prototyping bottom-right */}
-            <div style={{ position: "absolute", bottom: 0, right: 0, width: 320 }}>
-              {/* Simple connection lines */}
-              <svg width="300" height="100" style={{ position: "absolute", top: -100 }}>
-                <line x1="0" y1="20" x2="200" y2="20" stroke="#22c55e" strokeWidth="2"/>
-                <circle cx="50" cy="20" r="3" fill="#22c55e"/>
-                <circle cx="150" cy="20" r="3" fill="#22c55e"/>
-                <line x1="0" y1="50" x2="250" y2="50" stroke="#22c55e" strokeWidth="2"/>
-                <circle cx="80" cy="50" r="3" fill="#22c55e"/>
-                <circle cx="200" cy="50" r="3" fill="#22c55e"/>
-                <path d="M180 10 L190 25 L185 25 L185 30 L180 10" fill="#22c55e"/>
-              </svg>
-              <div className="glass-card" style={{ padding: 24, width: "100%", height: 128 }}>
-                <div style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
-                  <span className="glass-card-icon" />
-                  <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 600, marginLeft: 12 }}>Prototyping</h3>
-                </div>
-                <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 14 }}>Turning Ideas into Interactive Prototypes that Spark User Love</p>
-              </div>
-            </div>
-          </div>
-        </RevealFx>
-      </Column>
-
-      {/* About Me Hook Section */}
-      <Column fillWidth gap="32" paddingY="48">
+      {/* About Me Hook Section - hidden */}
+      <Column hide fillWidth gap="0" paddingY="0">
         <RevealFx translateY="8" fillWidth horizontal="center">
           <Column horizontal="center" gap="16" maxWidth="l">
             <Heading variant="display-strong-l" wrap="balance" style={{ textAlign: "center" }}>
@@ -974,117 +877,7 @@ export default function Home() {
         </RevealFx>
       </Column>
 
-      {/* Passion Display Section */}
-      <Column fillWidth gap="32" paddingY="48">
-        <RevealFx translateY="8" fillWidth horizontal="center">
-          <Column horizontal="center" gap="16" maxWidth="l">
-            <Heading variant="display-strong-l" wrap="balance" style={{ textAlign: "center" }}>
-              <Text onBackground="neutral-strong">What Drives Me</Text>
-            </Heading>
-            <Text variant="heading-default-xl" wrap="balance" onBackground="neutral-weak" style={{ textAlign: "center" }}>
-              Beyond pixels and interfaces
-            </Text>
-            <Text variant="body-default-l" wrap="balance" onBackground="neutral-weak" style={{ maxWidth: "600px", textAlign: "center" }}>
-              Design is more than aesthetics—it's about creating meaningful connections, solving real problems, and making technology feel human.
-            </Text>
-          </Column>
-        </RevealFx>
-        
-        <RevealFx translateY="12" delay={0.2} fillWidth>
-          <Flex
-            fillWidth
-            gap="32"
-            style={{
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}
-          >
-            <Flex
-              flex={1}
-              direction="column"
-              gap="16"
-              padding="32"
-              radius="l"
-                  background="surface"
-                  border="neutral-alpha-weak"
-              className="passion-card"
-                  style={{
-                minWidth: "300px",
-                maxWidth: "400px",
-                    position: "relative",
-                    overflow: "hidden",
-                transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                  }}
-                >
-              <span style={{ fontSize: "56px", filter: "drop-shadow(0 2px 4px var(--shadow-color))" }}>
-                🌟
-              </span>
-              <Heading variant="heading-strong-m" onBackground="neutral-strong">
-                User Experience
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
-                I'm passionate about creating experiences that feel intuitive, delightful, and meaningful. Every interaction should tell a story and serve a purpose.
-              </Text>
-            </Flex>
-            
-            <Flex
-              flex={1}
-              direction="column"
-              gap="16"
-              padding="32"
-              radius="l"
-              background="surface"
-              border="neutral-alpha-weak"
-              className="passion-card"
-                    style={{
-                minWidth: "300px",
-                maxWidth: "400px",
-                position: "relative",
-                overflow: "hidden",
-                transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-              }}
-            >
-              <span style={{ fontSize: "56px", filter: "drop-shadow(0 2px 4px var(--shadow-color))" }}>
-                🎨
-              </span>
-              <Heading variant="heading-strong-m" onBackground="neutral-strong">
-                Visual Design
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
-                Crafting beautiful, purposeful visuals that communicate clearly and create emotional connections. Design should be both functional and inspiring.
-                  </Text>
-            </Flex>
-            
-            <Flex
-              flex={1}
-              direction="column"
-              gap="16"
-              padding="32"
-              radius="l"
-              background="surface"
-              border="neutral-alpha-weak"
-              className="passion-card"
-              style={{
-                minWidth: "300px",
-                maxWidth: "400px",
-                position: "relative",
-                overflow: "hidden",
-                transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-              }}
-            >
-              <span style={{ fontSize: "56px", filter: "drop-shadow(0 2px 4px var(--shadow-color))" }}>
-                🔬
-              </span>
-              <Heading variant="heading-strong-m" onBackground="neutral-strong">
-                Research & Strategy
-              </Heading>
-              <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
-                Understanding the problem deeply before designing the solution. Data-driven insights combined with human empathy lead to better outcomes.
-                  </Text>
-            </Flex>
-          </Flex>
-        </RevealFx>
-      </Column>
+      {/* Passion Display Section - removed per request */}
 
       {/* Testimonials Section */}
       <Column fillWidth gap="32" paddingY="48">
@@ -1117,7 +910,7 @@ export default function Home() {
               className="testimonials-ticker" 
               style={{
                 display: "flex",
-                gap: "24px",
+                gap: "16px",
                 width: "max-content",
                 minWidth: "100vw",
                 paddingLeft: "0",
@@ -1229,9 +1022,10 @@ export default function Home() {
                 document.addEventListener('touchend', handleTouchEnd);
               }}
             >
-              {/* Original 4 Cards */}
-              {/* Testimonial Card 1 */}
+              {/* Testimonials (updated list, recommendation link always visible only on two) */}
+              {testimonials.concat(testimonials).map((t, i) => (
               <Flex
+                  key={`${t.name}-${i}`}
                 direction="column"
                 gap="16"
                 padding="24"
@@ -1240,52 +1034,8 @@ export default function Home() {
                 border="neutral-alpha-weak"
                 className="testimonial-card"
                 style={{
-                  minWidth: "280px",
-                  maxWidth: "320px",
-                  position: "relative",
-                  overflow: "hidden",
-                  transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                  cursor: "pointer",
-                }}
-              >
-                <Flex gap="12" vertical="center">
-                  <span style={{ fontSize: "32px" }}>👩‍💻</span>
-                  <Flex direction="column" gap="4">
-                    <Text variant="body-strong-s" onBackground="neutral-strong">
-                      Aditi Gupta
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      UI/UX designer @ NatFirst
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance" style={{ marginBottom: "8px" }}>
-                  Working with Soham has been an amazing experience. He is smart and a confident person with an amazing understanding and grasping skills. I would love to get on some interesting projects with him in the future.
-                </Text>
-                <div 
-                  className="recommendation-link"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.open('https://example.com', '_blank');
-                    }
-                  }}
-                >
-                  View Recommendation →
-                </div>
-              </Flex>
-              
-              {/* Testimonial Card 2 */}
-              <Flex
-                direction="column"
-                gap="16"
-                padding="24"
-                radius="l"
-                background="surface"
-                border="neutral-alpha-weak"
-                className="testimonial-card"
-                style={{
-                  minWidth: "280px",
-                  maxWidth: "320px",
+                    width: "340px",
+                    minHeight: "340px",
                   position: "relative",
                   overflow: "hidden",
                   transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
@@ -1293,65 +1043,57 @@ export default function Home() {
                 }}
               >
                 <Flex gap="12" vertical="center">
-                  <div style={{ fontSize: "32px" }}>👨‍💼</div>
+                    <div className="testimonial-avatar" style={{
+                      width: "40px",
+                      height: "40px",
+                      minWidth: "40px",
+                      minHeight: "40px",
+                      borderRadius: "50%",
+                      background: "rgba(255,255,255,0.15)",
+                      padding: "2px",
+                      display: "grid",
+                      placeItems: "center",
+                      overflow: "visible",
+                      boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+                      boxSizing: "border-box",
+                      border: "1px solid rgba(255,255,255,0.25)"
+                    }}>
+                      <img
+                        src={(() => {
+                          const map: Record<string, string> = {
+                            "Devamrit Mohanty": "/images/testimonials/devamrit.png",
+                            "Aditya Gautam": "/images/testimonials/aditya.png",
+                            "Makarand Kulkarni": "/images/testimonials/makarand.png",
+                            "Sabyasachi  rout": "/images/testimonials/sabhyasachi.png",
+                            "Shirin Deshpande": "/images/testimonials/shirin.png",
+                            "Avinash Jethwani": "/images/testimonials/avinash.png",
+                            "Rahul Kumar": "/images/testimonials/rahul.png",
+                          };
+                          return map[t.name] || "/images/testimonials/placeholder.png";
+                        })()}
+                        alt={t.name}
+                        style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%", display: "block" }}
+                      />
+                </div>
                   <Flex direction="column" gap="4">
-                    <Text variant="body-strong-s" onBackground="neutral-strong">
-                      Akhil Krishna
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      CEO @ Engineers Built
-                    </Text>
+                      <Text variant="body-strong-s" onBackground="neutral-strong">{t.name}</Text>
+                      <Text variant="body-default-s" onBackground="neutral-weak">{t.role}</Text>
                   </Flex>
                 </Flex>
                 <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance" style={{ marginBottom: "8px" }}>
-                  I have been working with Soham for the past 5 months to build my startup. He has an eye for detail and a deep understanding of user experience principles, consistently delivering designs that not only look visually stunning but also prioritize functionality and user satisfaction.
+                    {t.text}
                 </Text>
+                {t.name === 'Makarand Kulkarni' && (<div style={{ height: '0.6em' }} />)}
+                {(t.alwaysShowRecommendation) && (
                 <div 
                   className="recommendation-link"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.open('https://example.com', '_blank');
-                    }
-                  }}
-                >
-                  View Recommendation →
-                </div>
-              </Flex>
-              
-              {/* Testimonial Card 3 */}
-              <Flex
-                direction="column"
-                gap="16"
-                padding="24"
-                radius="l"
-                background="surface"
-                border="neutral-alpha-weak"
-                className="testimonial-card"
                 style={{
-                  minWidth: "280px",
-                  maxWidth: "320px",
-                  position: "relative",
-                  overflow: "hidden",
-                  transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                  cursor: "pointer",
-                }}
-              >
-                <Flex gap="12" vertical="center">
-                  <div style={{ fontSize: "32px" }}>👨‍🎨</div>
-                  <Flex direction="column" gap="4">
-                    <Text variant="body-strong-s" onBackground="neutral-strong">
-                      Sudhanwa Bandi
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      Designer @ Hindustan Times
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance" style={{ marginBottom: "8px" }}>
-                  Soham is an enthusiastic UI/UX designer, a hardworker with perfect go-getter attitude. He always thrives to get all his best possibilities at the table which do create differences in major decisions. It's always a pleasure to work with him.
-                </Text>
-                <div 
-                  className="recommendation-link"
+                        opacity: 1, 
+                        transform: 'translateY(0)', 
+                        marginTop: 4, 
+                        paddingTop: 0,
+                        display: 'inline-block'
+                      }}
                   onClick={() => {
                     if (typeof window !== 'undefined') {
                       window.open('https://example.com', '_blank');
@@ -1360,324 +1102,133 @@ export default function Home() {
                 >
                   View Recommendation →
                 </div>
+                  )}
               </Flex>
-              
-              {/* Testimonial Card 4 */}
-              <Flex
-                direction="column"
-                gap="16"
-                padding="24"
-                radius="l"
-                background="surface"
-                border="neutral-alpha-weak"
-                className="testimonial-card"
-                style={{
-                  minWidth: "280px",
-                  maxWidth: "320px",
-                  position: "relative",
-                  overflow: "hidden",
-                  transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                  cursor: "pointer",
-                }}
-              >
-                <Flex gap="12" vertical="center">
-                  <div style={{ fontSize: "32px" }}>👨‍🔬</div>
-                  <Flex direction="column" gap="4">
-                    <Text variant="body-strong-s" onBackground="neutral-strong">
-                      Raghul Baskar
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      Researcher @ Samsung
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance" style={{ marginBottom: "8px" }}>
-                  Working with Soham has been an absolute adventure. His ability to seamlessly blend creativity with user-centric design principles has been a blessing in disguise. His attention to detail, collaborative spirit, and commitment to delivering designs that align with the brand vision has truly set him apart.
-                </Text>
-                <div 
-                  className="recommendation-link"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.open('https://example.com', '_blank');
-                    }
-                  }}
-                >
-                  View Recommendation →
+              ))}
                 </div>
-              </Flex>
-              
-              {/* Duplicate 4 Cards for seamless loop */}
-              {/* Testimonial Card 1 (Duplicate) */}
-                <Flex
-                  direction="column"
-                gap="16"
-                padding="24"
-                radius="l"
-                  background="surface"
-                  border="neutral-alpha-weak"
-                className="testimonial-card"
-                  style={{
-                  minWidth: "280px",
-                  maxWidth: "320px",
-                    position: "relative",
-                    overflow: "hidden",
-                  transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                  cursor: "pointer",
-                }}
-              >
-                <Flex gap="12" vertical="center">
-                  <span style={{ fontSize: "32px" }}>👩‍💻</span>
-                  <Flex direction="column" gap="4">
-                    <Text variant="body-strong-s" onBackground="neutral-strong">
-                      Aditi Gupta
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      UI/UX designer @ NatFirst
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance" style={{ marginBottom: "8px" }}>
-                  Working with Soham has been an amazing experience. He is smart and a confident person with an amazing understanding and grasping skills. I would love to get on some interesting projects with him in the future.
-                </Text>
-                <div 
-                  className="recommendation-link"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.open('https://example.com', '_blank');
-                    }
-                  }}
-                >
-                  View Recommendation →
                 </div>
-              </Flex>
-              
-              {/* Testimonial Card 2 (Duplicate) */}
-              <Flex
-                direction="column"
-                gap="16"
-                padding="24"
-                radius="l"
-                background="surface"
-                border="neutral-alpha-weak"
-                className="testimonial-card"
-                    style={{
-                  minWidth: "280px",
-                  maxWidth: "320px",
-                  position: "relative",
-                  overflow: "hidden",
-                  transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                  cursor: "pointer",
-                }}
-              >
-                <Flex gap="12" vertical="center">
-                  <span style={{ fontSize: "32px" }}>👨‍💼</span>
-                  <Flex direction="column" gap="4">
-                    <Text variant="body-strong-s" onBackground="neutral-strong">
-                      Akhil Krishna
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      CEO @ Engineers Built
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance" style={{ marginBottom: "8px" }}>
-                  I have been working with Soham for the past 5 months to build my startup. He has an eye for detail and a deep understanding of user experience principles, consistently delivering designs that not only look visually stunning but also prioritize functionality and user satisfaction.
-                  </Text>
-                <div 
-                  className="recommendation-link"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.open('https://example.com', '_blank');
-                    }
-                  }}
-                >
-                  View Recommendation →
-                </div>
-              </Flex>
-              
-              {/* Testimonial Card 3 (Duplicate) */}
-              <Flex
-                direction="column"
-                gap="16"
-                padding="24"
-                radius="l"
-                background="surface"
-                border="neutral-alpha-weak"
-                className="testimonial-card"
-                style={{
-                  minWidth: "280px",
-                  maxWidth: "320px",
-                  position: "relative",
-                  overflow: "hidden",
-                  transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                  cursor: "pointer",
-                }}
-              >
-                <Flex gap="12" vertical="center">
-                  <span style={{ fontSize: "32px" }}>👨‍🎨</span>
-                  <Flex direction="column" gap="4">
-                    <Text variant="body-strong-s" onBackground="neutral-strong">
-                      Sudhanwa Bandi
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      Designer @ Hindustan Times
-                  </Text>
-                  </Flex>
-                </Flex>
-                <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance" style={{ marginBottom: "8px" }}>
-                  Soham is an enthusiastic UI/UX designer, a hardworker with perfect go-getter attitude. He always thrives to get all his best possibilities at the table which do create differences in major decisions. It's always a pleasure to work with him.
-                </Text>
-                <div 
-                  className="recommendation-link"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.open('https://example.com', '_blank');
-                    }
-                  }}
-                >
-                  View Recommendation →
-                </div>
-              </Flex>
-              
-              {/* Testimonial Card 4 (Duplicate) */}
-              <Flex
-                direction="column"
-                gap="16"
-                padding="24"
-                radius="l"
-                background="surface"
-                border="neutral-alpha-weak"
-                className="testimonial-card"
-                style={{
-                  minWidth: "280px",
-                  maxWidth: "320px",
-                  position: "relative",
-                  overflow: "hidden",
-                  transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                  cursor: "pointer",
-                }}
-              >
-                <Flex gap="12" vertical="center">
-                  <span style={{ fontSize: "32px" }}>👨‍🔬</span>
-                  <Flex direction="column" gap="4">
-                    <Text variant="body-strong-s" onBackground="neutral-strong">
-                      Raghul Baskar
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      Researcher @ Samsung
-                    </Text>
-            </Flex>
-          </Flex>
-                <Text variant="body-default-s" onBackground="neutral-weak" wrap="balance" style={{ marginBottom: "8px" }}>
-                  Working with Soham has been an absolute adventure. His ability to seamlessly blend creativity with user-centric design principles has been a blessing in disguise. His attention to detail, collaborative spirit, and commitment to delivering designs that align with the brand vision has truly set him apart.
-                </Text>
-                <div 
-                  className="recommendation-link"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.open('https://example.com', '_blank');
-                    }
-                  }}
-                >
-                  View Recommendation →
-                </div>
-              </Flex>
-            </div>
-          </div>
         </RevealFx>
       </Column>
       
-      {/* Scroll Indicator */}
-      <Flex fillWidth horizontal="center" paddingBottom="32">
-        <RevealFx translateY="8" delay={0.8}>
-          <Flex
+      {/* Keep only newsletter below */}
+      {newsletter.display && (
+        <Column fillWidth paddingY="16">
+          <Column
+            fillWidth
+            padding="l"
+                radius="l"
+                  background="surface"
+                  border="neutral-alpha-weak"
+            horizontal="center"
+            align="center"
             gap="8"
-            vertical="center"
-            style={{
-              padding: "8px 16px",
-              borderRadius: "20px",
-              background: "var(--neutral-alpha-weak)",
-              border: "1px solid var(--neutral-alpha-medium)",
-            }}
+            style={{ overflow: "hidden", borderRadius: "var(--radius-l)" }}
           >
-            <div
-              style={{
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                background: "linear-gradient(90deg, var(--brand-strong) 0%, var(--accent-strong) 100%)",
-                animation: "pulse 2s infinite",
+            <Background
+              top="0"
+              position="absolute"
+              mask={{
+                x: mailchimp.effects.mask.x,
+                y: mailchimp.effects.mask.y,
+                radius: mailchimp.effects.mask.radius,
+                cursor: mailchimp.effects.mask.cursor
+              }}
+              gradient={{
+                display: mailchimp.effects.gradient.display,
+                opacity: mailchimp.effects.gradient.opacity as any,
+                x: mailchimp.effects.gradient.x,
+                y: mailchimp.effects.gradient.y,
+                width: mailchimp.effects.gradient.width,
+                height: mailchimp.effects.gradient.height,
+                tilt: mailchimp.effects.gradient.tilt,
+                colorStart: mailchimp.effects.gradient.colorStart,
+                colorEnd: mailchimp.effects.gradient.colorEnd,
+              }}
+              dots={{
+                display: mailchimp.effects.dots.display,
+                opacity: mailchimp.effects.dots.opacity as any,
+                size: mailchimp.effects.dots.size as any,
+                color: mailchimp.effects.dots.color,
+              }}
+              grid={{
+                display: mailchimp.effects.grid.display,
+                opacity: mailchimp.effects.grid.opacity as any,
+                color: mailchimp.effects.grid.color,
+                width: mailchimp.effects.grid.width,
+                height: mailchimp.effects.grid.height,
+              }}
+              lines={{
+                display: mailchimp.effects.lines.display,
+                opacity: mailchimp.effects.lines.opacity as any,
+                size: mailchimp.effects.lines.size as any,
+                thickness: mailchimp.effects.lines.thickness,
+                angle: mailchimp.effects.lines.angle,
+                color: mailchimp.effects.lines.color,
               }}
             />
-            <Text variant="body-default-s" onBackground="neutral-weak">
-              Scroll to explore
-            </Text>
-          </Flex>
-        </RevealFx>
-      </Flex>
-
-      {/* Original Content */}
-      <Column fillWidth paddingY="24" gap="m">
-        <Column maxWidth="s">
-          {home.featured.display && (
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
-            <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
-              href={home.featured.href}>
-              <Row paddingY="2">{home.featured.title}</Row>
-            </Badge>
-          </RevealFx>
-          )}
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
-            <Button
-              id="about"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              arrowIcon
+            <Heading variant="display-strong-xs">Stay in touch</Heading>
+            <Text onBackground="neutral-weak" wrap="balance">Prefer a quick note? Reach out via the contact page.</Text>
+            <a
+              href="/contact"
+              className="resume-button"
+                style={{
+                gap: "12px",
+                padding: "12px 20px",
+                background: "rgba(255, 255, 255, 0.08)",
+                backdropFilter: "blur(20px) saturate(180%)",
+                border: "1px solid rgba(255, 255, 255, 0.15)",
+                borderRadius: "12px",
+                color: "rgba(255, 255, 255, 0.95)",
+                fontSize: "14px",
+                fontWeight: "600",
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                  position: "relative",
+                  overflow: "hidden",
+                boxShadow:
+                  "0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1)",
+                  transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              }}
             >
-              <Flex gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Flex>
-            </Button>
-          </RevealFx>
+              <div
+                className="button-glow"
+            style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background:
+                    "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.15) 0%, transparent 70%)",
+                  opacity: 0,
+                  transition: "opacity 0.4s ease",
+                }}
+              />
+              <div
+                className="button-shimmer"
+              style={{
+                  position: "absolute",
+                  top: 0,
+                  left: "-100%",
+                  width: "100%",
+                  height: "100%",
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)",
+                  transition: "transform 0.6s ease",
+                }}
+              />
+              <span style={{ position: "relative", zIndex: 2 }}>Go to Contact</span>
+              <span
+                className="arrow-icon"
+                style={{ fontSize: 16, position: "relative", zIndex: 2 }}
+              >
+                →
+              </span>
+            </a>
         </Column>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      {routes["/blog"] && (
-        <Flex fillWidth gap="24">
-          <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog
-            </Heading>
-          </Flex>
-          <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
-          </Flex>
-        </Flex>
       )}
-      <Projects range={[2]} />
-      {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>
   );
 }

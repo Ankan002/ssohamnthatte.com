@@ -38,6 +38,7 @@ export default async function RootLayout({
       )}
     >
       <head>
+        <link rel="icon" href="/images/soham.png" type="image/png" />
         <link rel="preload" as="image" href="/images/soham.png" fetchPriority="high" />
         <script
           id="theme-init"
