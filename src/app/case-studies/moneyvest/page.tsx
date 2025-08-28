@@ -57,7 +57,7 @@ export default function MoneyVestCaseStudy() {
         }}
       >
         {images.map((src, i) => (
-          <div key={src} style={{ width: "100%", margin: "0 auto 24px" }}>
+          <div key={src} style={{ width: "100%", margin: i === 0 ? "0 auto 0" : i === images.length - 1 ? "0 auto 0" : "0 auto 0" }}>
             {/* Use img to allow arbitrary sizes from public dir */}
             <img
               src={src}
@@ -67,6 +67,76 @@ export default function MoneyVestCaseStudy() {
             />
           </div>
         ))}
+      </div>
+
+      {/* Floating controls */}
+      <div
+        style={{
+          position: "fixed",
+          bottom: 24,
+          right: 24,
+          display: "flex",
+          gap: 12,
+          zIndex: 50,
+          pointerEvents: "none",
+        }}
+      >
+        <a
+          href="/case-studies"
+          className="resume-button"
+          style={{
+            pointerEvents: "auto",
+            gap: "12px",
+            padding: "12px 16px",
+            background: "rgba(255, 255, 255, 0.08)",
+            backdropFilter: "blur(20px) saturate(180%)",
+            border: "1px solid rgba(255, 255, 255, 0.15)",
+            borderRadius: "12px",
+            color: "rgba(255, 255, 255, 0.95)",
+            fontSize: "14px",
+            fontWeight: 600,
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)",
+            transition: "all .4s cubic-bezier(0.25,0.46,0.45,0.94)",
+          }}
+        >
+          <div className="button-glow" style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 50% 0%, rgba(255,255,255,.15) 0%, transparent 70%)", opacity: 0, transition: "opacity .4s ease" }} />
+          <div className="button-shimmer" style={{ position: "absolute", inset: 0, left: "-100%", background: "linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent)", transition: "transform .6s ease" }} />
+          <span style={{ position: "relative", zIndex: 2 }}>View All Case Studies</span>
+          <span className="arrow-icon" style={{ position: "relative", zIndex: 2, fontSize: 16 }}>→</span>
+        </a>
+        <a
+          href="/"
+          className="resume-button"
+          style={{
+            pointerEvents: "auto",
+            gap: "12px",
+            padding: "12px 16px",
+            background: "rgba(255, 255, 255, 0.08)",
+            backdropFilter: "blur(20px) saturate(180%)",
+            border: "1px solid rgba(255, 255, 255, 0.15)",
+            borderRadius: "12px",
+            color: "rgba(255, 255, 255, 0.95)",
+            fontSize: "14px",
+            fontWeight: 600,
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)",
+            transition: "all .4s cubic-bezier(0.25,0.46,0.45,0.94)",
+          }}
+        >
+          <div className="button-glow" style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 50% 0%, rgba(255,255,255,.15) 0%, transparent 70%)", opacity: 0, transition: "opacity .4s ease" }} />
+          <div className="button-shimmer" style={{ position: "absolute", inset: 0, left: "-100%", background: "linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent)", transition: "transform .6s ease" }} />
+          <span style={{ position: "relative", zIndex: 2 }}>Go Home</span>
+          <span className="arrow-icon" style={{ position: "relative", zIndex: 2, fontSize: 16 }}>↗</span>
+        </a>
       </div>
     </Column>
   );
