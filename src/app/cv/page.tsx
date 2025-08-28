@@ -51,32 +51,7 @@ export default function Resume() {
         }}
       >
         <a
-          href="/"
-          className="resume-button"
-        style={{
-            pointerEvents: "auto",
-            gap: "12px",
-            padding: "12px 16px",
-            background: "rgba(255,255,255,0.08)",
-            backdropFilter: "blur(20px) saturate(180%)",
-            border: "1px solid rgba(255,255,255,0.15)",
-            borderRadius: "12px",
-            color: "rgba(255,255,255,0.95)",
-            fontSize: 14,
-            fontWeight: 600,
-            textDecoration: "none",
-            display: "flex",
-            alignItems: "center",
-            position: "relative",
-            overflow: "hidden",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)",
-          }}
-        >
-          <span style={{ position: "relative", zIndex: 2 }}>Go Home</span>
-          <span className="arrow-icon" style={{ position: "relative", zIndex: 2, fontSize: 16 }}>↗</span>
-        </a>
-        <a
-          href="/images/soham_thatte_resume.pdf"
+          href="/images/soham_resume.pdf"
           download
           className="resume-button"
           style={{
@@ -100,6 +75,31 @@ export default function Resume() {
         >
           <span style={{ position: "relative", zIndex: 2 }}>Download Resume</span>
           <span className="arrow-icon" style={{ position: "relative", zIndex: 2, fontSize: 16 }}>↓</span>
+        </a>
+        <a
+          href="/"
+          className="resume-button"
+        style={{
+            pointerEvents: "auto",
+            gap: "12px",
+            padding: "12px 16px",
+            background: "rgba(255,255,255,0.08)",
+            backdropFilter: "blur(20px) saturate(180%)",
+            border: "1px solid rgba(255,255,255,0.15)",
+            borderRadius: "12px",
+            color: "rgba(255,255,255,0.95)",
+            fontSize: 14,
+            fontWeight: 600,
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)",
+          }}
+        >
+          <span style={{ position: "relative", zIndex: 2 }}>Go Home</span>
+          <span className="arrow-icon" style={{ position: "relative", zIndex: 2, fontSize: 16 }}>↗</span>
         </a>
       </div>
     </Column>
