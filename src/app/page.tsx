@@ -53,7 +53,7 @@ const testimonials = [
   },
   {
     name: "Aditya Gautam",
-    role: "Product Manager  @ Bosch",
+    role: "Head Product Marketing & Strategy @ Bosch",
     emoji: "📈",
     text:
       "Soham brings a rare mix of design sensitivity and strategic thinking. During his internship, he led UX audits, redesigned workflows, and created empathy maps that streamlined processes and improved usability. He has a knack for identifying friction points within complex systems and turning them into clear, scalable solutions. His ability to balance design craft with systems-level foresight, while communicating effectively across teams, made him a highly valued contributor.",
@@ -93,7 +93,7 @@ const testimonials = [
   },
   {
     name: "Rahul Kumar",
-    role: "CTO @ Jobsub",
+    role: "Sr. Ux Designer @ Ambertag Analytics",
     emoji: "🔧",
     text:
       "During his internship, Soham demonstrated exceptional ability in tackling complex UX challenges. His research-driven approach, attention to detail, and strong grasp of UX principles allowed him to deliver solutions that significantly improved usability and customer satisfaction. His insights, creativity, and structured problem-solving made a real impact, and I am confident he will continue to be a valuable asset in any design team.",
