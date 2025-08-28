@@ -12,6 +12,7 @@ const routes = {
   "/banana": true,
   "/case-studies": true,
   "/cv": true,
+  "/recommendations": true,
   "/experience": true,
   "/contact": true,
 };

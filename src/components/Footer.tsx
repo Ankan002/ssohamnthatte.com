@@ -12,7 +12,7 @@ export const Footer = () => {
         {/* Copyright Text */}
         <div className={styles.copyright}>
           <Text variant="body-default-s" className={styles.copyrightText}>
-            ©{currentYear} • {person.name}
+            ©{currentYear} • Crafted by {person.name} with inspiration, peer pressure, and sleepless nights with bursting ideas
           </Text>
         </div>
 

@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { person, baseURL } from "@/resources";
 import { Meta, Column } from "@once-ui-system/core";
+import RecommendationViewer from "@/components/RecommendationViewer";
 
 function getResumeImages(): string[] {
   const dir = path.join(process.cwd(), "public", "images", "resume");
@@ -30,13 +31,9 @@ export async function generateMetadata() {
 export default function Resume() {
   const images = getResumeImages();
   return (
-    <Column fillWidth gap="l" paddingY="xl">
-      {/* full-bleed container */}
-      <div style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }}>
-        {images.map((src) => (
-          <img key={src} src={src} alt="Resume image" style={{ width: "100%", display: "block" }} />
-        ))}
-      </div>
+    <Column fillWidth gap="0" paddingY="0">
+      {/* Fit one page per screen with zoom */}
+      <RecommendationViewer images={images} title="Resume" controlsPlacement="nearCTA" />
 
       {/* Floating CTAs */}
       <div

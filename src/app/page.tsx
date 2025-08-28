@@ -1087,24 +1087,31 @@ export default function Home() {
                     {t.text}
                 </Text>
                 {t.name === 'Makarand Kulkarni' && (<div style={{ height: '0.6em' }} />)}
-                {(t.alwaysShowRecommendation) && (
-                <div 
+                {(t.alwaysShowRecommendation || t.name.toLowerCase().includes('sabya') || t.name.toLowerCase().includes('shirin')) && (
+                <a 
                   className="recommendation-link"
                 style={{
                         opacity: 1, 
                         transform: 'translateY(0)', 
                         marginTop: 4, 
                         paddingTop: 0,
-                        display: 'inline-block'
+                        display: 'inline-block',
+                        textDecoration: 'none'
                       }}
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.open('https://example.com', '_blank');
-                    }
-                  }}
+                  href={
+                    t.name === 'Makarand Kulkarni'
+                      ? '/recommendations/makarand'
+                      : t.name === 'Rahul Kumar'
+                      ? '/recommendations/rahul'
+                      : t.name.toLowerCase().includes('sabya')
+                      ? '/recommendations/sabhyasachi'
+                      : t.name.toLowerCase().includes('shirin')
+                      ? '/recommendations/shirin'
+                      : '#'
+                  }
                 >
                   View Recommendation →
-                </div>
+                </a>
                   )}
               </Flex>
               ))}
