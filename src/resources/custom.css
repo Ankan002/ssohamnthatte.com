@@ -983,3 +983,13 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* SVG Hover Effect for About Page - Only animate the person character */
+.svg-hover-effect:hover svg image[id="image0_139_98478"] {
+  transform: translateY(-8px) scale(1.1);
+  transition: transform 0.3s ease-out;
+}
+
+.svg-hover-effect svg image[id="image0_139_98478"] {
+  transition: transform 0.3s ease-out;
+}

@@ -28,29 +28,69 @@ export default function About() {
         }}
       />
       
-        <Column
-        maxWidth="s" 
-            horizontal="center"
+      <Column
+        horizontal="center"
         gap="l" 
         padding="xl"
-        radius="l"
-        background="surface"
-        border="neutral-alpha-weak"
-                style={{
-          backdropFilter: "blur(20px)",
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
+        style={{
+          textAlign: "center",
         }}
       >
-        <Heading variant="display-strong-l" style={{ textAlign: "center" }}>
-          About Me
-            </Heading>
-        <Text variant="body-default-l" style={{ textAlign: "center" }} onBackground="neutral-weak">
-          Coming Soon
-            </Text>
-        <Text variant="body-default-s" style={{ textAlign: "center" }} onBackground="neutral-medium">
-          I'm working on sharing my story and experience. Check back soon!
-                    </Text>
-                  </Column>
+        {/* Icon - Circular image with transparent mask */}
+        <div
+          style={{
+            width: "120px",
+            height: "120px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 auto",
+            marginBottom: "10px",
+            cursor: "pointer",
+          }}
+          className="svg-hover-effect"
+        >
+          <img
+            src="/images/nutshell.svg"
+            alt="Me in a nutshell"
+            style={{
+              width: "120px",
+              height: "120px",
+              objectFit: "cover",
+              clipPath: "circle(50% at 50% 50%)",
+            }}
+          />
+        </div>
+
+        {/* Heading */}
+        <Heading 
+          variant="display-strong-l" 
+          style={{ 
+            textAlign: "center",
+            color: "#FFFFFF",
+            margin: 0,
+            marginBottom: "3px",
+          }}
+        >
+          Me in a nutshell
+        </Heading>
+
+        {/* Body Text */}
+        <Text 
+          variant="body-default-s" 
+          style={{ 
+            textAlign: "center",
+            color: "#E0E1DD",
+            lineHeight: "1.68",
+            margin: "0",
+            padding: "0",
+            width: "100%",
+          }}
+        >
+          My passion lies at the intersection of art, technology, and human behavior, where I strive to create interfaces that are not only visually captivating but also strategically impactful in elevating overall digital experiences.
+          Now in my fourth year as a UX Design student at MIT-ADT University, I have grown beyond foundational principles into integrating strategy with interaction design. This journey has equipped me with the ability to approach design challenges holistically blending aesthetics, functionality, and user-centered insights with strategic thinking to craft solutions that are both intuitive and purposeful.
+        </Text>
+      </Column>
     </Column>
   );
 }
