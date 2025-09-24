@@ -919,6 +919,122 @@ export default function Home() {
           </Flex>
         </RevealFx>
         
+        {/* AI in UX Case Study Card (mirrors MoneyVest styling) */}
+        <RevealFx translateY="12" delay={0.35} fillWidth>
+          <Flex
+            fillWidth
+            horizontal="center"
+            style={{
+              justifyContent: "center",
+            }}
+          >
+            <a href="/case-studies/ai-in-ux" style={{ textDecoration: "none", color: "inherit" }}>
+              <div
+                className="sophisticated-ui-card"
+                style={{
+                  width: "1000px",
+                  height: "600px",
+                  borderRadius: "24px",
+                  position: "relative",
+                  overflow: "hidden",
+                  boxShadow: "0 40px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)",
+                  transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                  cursor: "pointer",
+                }}
+              >
+                {/* Full Cover Background */}
+                <div style={{ position: "absolute", inset: 0, zIndex: 1 }}>
+                  <img
+                    src="/images/ai-in-ux/1.png"
+                    alt="AI in UX"
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%)" }} />
+                </div>
+
+                {/* Glow */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-50px",
+                    left: "-50px",
+                    width: "200px",
+                    height: "200px",
+                    background: "radial-gradient(circle, rgba(147, 51, 234, 0.3) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 100%)",
+                    borderRadius: "50%",
+                    filter: "blur(40px)",
+                    zIndex: 2,
+                  }}
+                />
+
+                {/* Content Card */}
+                <div style={{ position: "relative", zIndex: 3, height: "100%", display: "flex", alignItems: "flex-start", padding: "32px" }}>
+                  <div style={{
+                    maxWidth: "500px",
+                    background: "rgba(255, 255, 255, 0.08)",
+                    backdropFilter: "blur(20px) saturate(180%)",
+                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    borderRadius: "20px",
+                    padding: "32px",
+                    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
+                  }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px", flexWrap: "wrap" }}>
+                      <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#10b981" }}></div>
+                      <Text style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.9)", fontWeight: "500" }}>Featured Case Study</Text>
+                      <Text style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.9)", fontWeight: "500", display: "block", width: "100%" }}>6 min read</Text>
+                    </div>
+
+                    <Heading style={{ fontSize: "2.4rem", fontWeight: 700, color: "white", marginBottom: "16px", lineHeight: "1.1" }}>
+                      AI in UX
+                    </Heading>
+
+                    <Text style={{ fontSize: "1.1rem", color: "rgba(255, 255, 255, 0.9)", marginBottom: "24px", lineHeight: "1.5" }}>
+                      Exploring how AI augments user journeys and shapes modern interface patterns through practical, production-minded design.
+                    </Text>
+
+                    <div style={{ display: "flex", gap: "12px", marginBottom: "24px", flexWrap: "wrap" }}>
+                      <span style={{ fontSize: "12px", color: "#3b82f6", background: "rgba(59, 130, 246, 0.3)", padding: "4px 8px", borderRadius: "6px" }}>Web</span>
+                      <span style={{ fontSize: "12px", color: "#10b981", background: "rgba(16, 185, 129, 0.3)", padding: "4px 8px", borderRadius: "6px" }}>2025</span>
+                      <span style={{ fontSize: "12px", color: "#8b5cf6", background: "rgba(139, 92, 246, 0.3)", padding: "4px 8px", borderRadius: "6px" }}>AI</span>
+                    </div>
+
+                    <a
+                      href="/case-studies/ai-in-ux"
+                      className="resume-button"
+                      style={{
+                        gap: "16px",
+                        padding: "16px 32px",
+                        background: "rgba(255, 255, 255, 0.15)",
+                        backdropFilter: "blur(20px) saturate(180%)",
+                        border: "1px solid rgba(255, 255, 255, 0.2)",
+                        borderRadius: "16px",
+                        color: "rgba(255, 255, 255, 0.95)",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                        textDecoration: "none",
+                        display: "flex",
+                        alignItems: "center",
+                        alignSelf: "flex-start",
+                        position: "relative",
+                        overflow: "hidden",
+                        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.1)",
+                        transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                      }}
+                    >
+                      <div className="button-glow" style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 50% 0px, rgba(255,255,255,0.15) 0%, transparent 70%)", opacity: 0, transition: "opacity 0.4s ease" }} />
+                      <div className="button-shimmer" style={{ position: "absolute", inset: 0, left: "-100%", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)", transition: "transform 0.6s ease" }} />
+                      <span style={{ position: "relative", zIndex: 2 }}>Read Case Study</span>
+                      <span className="arrow-icon" style={{ fontSize: 18, position: "relative", zIndex: 2 }}>→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </Flex>
+        </RevealFx>
+
         <RevealFx translateY="8" delay={0.4} horizontal="center">
           <Button
             href="/case-studies"
