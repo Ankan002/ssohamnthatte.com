@@ -51,7 +51,7 @@ export default async function RootLayout({
                 fonts.code.variable,
             )}
         >
-            <head>
+            {/*<head>
                 <link rel="icon" href="/images/soham.png" type="image/png" />
                 <link
                     rel="preload"
@@ -116,7 +116,7 @@ export default async function RootLayout({
             `,
                     }}
                 />
-            </head>
+            </head>*/}
             <Providers>
                 {/* Custom Cursor */}
                 {/*<div>
@@ -143,7 +143,7 @@ export default async function RootLayout({
                 </div>*/}
 
                 {/* Global Cursor Logic */}
-                <GlobalCursor />
+                {/*<GlobalCursor />*/}
 
                 <ScrollProgressBar />
                 <Column
